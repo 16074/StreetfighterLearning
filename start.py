@@ -27,9 +27,14 @@ while run:
     #achtergrond tekenen
     draw_bg()
 
+
     #fighter op scherm
     fighter_1.draw(Screen)
     fighter_2.draw(Screen)
+
+    # update fighters
+    fighter_1.update()
+    fighter_2.update()
 
 #event handler
     for event in pygame.event.get():
