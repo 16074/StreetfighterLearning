@@ -47,9 +47,9 @@ class Button:
         return event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and self.rect.collidepoint(event.pos)
 
 # Maak knoppen één keer aan
-button1 = Button(100, 210, 400, 75, "Streetfighter - Pythagoras")
-button2 = Button(100, 310, 400, 75, "NKPgame - Machtrekenen")
-button3 = Button(100, 410, 400, 75, "Platformer - SosCasToa")
+button1 = Button(300, 210, 400, 75, "Streetfighter - Pythagoras")
+button2 = Button(300, 310, 400, 75, "NKPgame - Machtrekenen")
+button3 = Button(300, 410, 400, 75, "Platformer - SosCasToa")
 
 current_screen = "home"
 
