@@ -17,16 +17,19 @@ def draw_bg():
     Screen.blit(bg_image, (0,0))
 
 #enkele fighter
-fighter_1 = Fighter(200,310)
-fighter_2 = Fighter(700,310)
+Poppetje = 100
+Lengte = 60
+fighter_1 = Fighter(200,310,)
+fighter_2 = Fighter(500,310,)
+
 
 #loop
+
 run = True
 while run: 
     
     #achtergrond tekenen
     draw_bg()
-
 
     #fighter op scherm
     fighter_1.draw(Screen)
