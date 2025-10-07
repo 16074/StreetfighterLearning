@@ -5,7 +5,7 @@ pygame.init()
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 600
 Screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption("Fighter")
+pygame.display.set_caption("Wisp homescreen")
 
 # Achtergrond inladen
 bg_image = pygame.image.load("afbeeldingen/achtergrond/math.png").convert_alpha()
@@ -43,45 +43,53 @@ class Button:
         text_rect = text_surface.get_rect(center=self.rect.center)
         surface.blit(text_surface, text_rect)
 
-    def is_clicked(self):
-        mouse_pos = pygame.mouse.get_pos()
-        if self.rect.collidepoint(mouse_pos) and pygame.mouse.get_pressed()[0]:
-            return True
-        return False
+    def is_clicked(self, event):
+        return event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and self.rect.collidepoint(event.pos)
 
 # Maak knoppen één keer aan
 button1 = Button(100, 210, 400, 75, "Streetfighter - Pythagoras")
 button2 = Button(100, 310, 400, 75, "NKPgame - Machtrekenen")
 button3 = Button(100, 410, 400, 75, "Platformer - SosCasToa")
 
+current_screen = "home"
+
 # Hoofdloop
 run = True
 while run:
-    draw_bg()
-
-    # Titel en instructie
-    titeltekst = font2.render("Welkom in Wisp!", True, WHITE)
-    vraagtekst = font.render("Selecteer hieronder een level om wiskunde mee te oefenen:", True, WHITE)
-    Screen.blit(titeltekst, ((SCREEN_WIDTH - titeltekst.get_width()) / 2, 80))
-    Screen.blit(vraagtekst, ((SCREEN_WIDTH - vraagtekst.get_width()) / 2, 120))
-
-    # Teken knoppen
-    button1.draw(Screen)
-    button2.draw(Screen)
-    button3.draw(Screen)
-
     # Event handler (alleen hier!)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
 
     # Check klikken
-    if button1.is_clicked():
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
+        if current_screen == "home":
+            if button1.is_clicked(event):
+                current_screen = 'game1'
+            if button2.is_clicked(event):
+                current_screen = 'game2'
+            if button3.is_clicked(event):
+                current_screen = 'game3'
+        
+    if current_screen == "home":
+        draw_bg()
+
+        titeltekst = font2.render("Welkom in Wisp!", True, WHITE)
+        vraagtekst = font.render("Selecteer hieronder een level om wiskunde mee te oefenen:", True, WHITE)
+        Screen.blit(titeltekst, ((SCREEN_WIDTH - titeltekst.get_width()) / 2, 80))
+        Screen.blit(vraagtekst, ((SCREEN_WIDTH - vraagtekst.get_width()) / 2, 120))
+
+        button1.draw(Screen)
+        button2.draw(Screen)
+        button3.draw(Screen)
+
+    else:
+        # Simpel wit scherm als placeholder voor spel
         Screen.fill(WHITE)
-    if button2.is_clicked():
-        Screen.fill(WHITE)
-    if button3.is_clicked():
-        Screen.fill(WHITE)
+        speltekst = font.render(f"Je bent nu in {current_screen}", True, BLACK)
+        Screen.blit(speltekst, (SCREEN_WIDTH/2 - speltekst.get_width()/2, SCREEN_HEIGHT/2))
 
     # Update display
     pygame.display.update()
