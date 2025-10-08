@@ -22,7 +22,7 @@ jobs:
           pip install pygame pyinstaller
 
       - name: Build EXE
-        run: pyinstaller --onefile main.py  # <-- replace with your actual script
+        run: pyinstaller --onefile --add-data "afbeeldingen;afbeeldingen" main.py  # <-- replace with your actual script
 
       - name: Upload built EXE
         uses: actions/upload-artifact@v4
