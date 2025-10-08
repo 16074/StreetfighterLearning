@@ -1,5 +1,6 @@
 import pygame
 from fither import Fighter
+from fither import Kak
 pygame.init()
 
 #window voor scherm
@@ -17,10 +18,8 @@ def draw_bg():
     Screen.blit(bg_image, (0,0))
 
 #enkele fighter
-Poppetje = 100
-Lengte = 60
-fighter_1 = Fighter(200,310,)
-fighter_2 = Fighter(500,310,)
+fighter_1 = Fighter(-25,100,)
+fighter_2 = Kak(425,100,)
 
 
 #loop
