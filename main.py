@@ -1,5 +1,16 @@
 import pygame
+import sys
+import os
 pygame.init()
+
+def resource_path(relative_path):
+    """Get absolute path to resource, works for dev and for PyInstaller .exe"""
+    try:
+        base_path = sys._MEIPASS  # temp folder for .exe
+    except Exception:
+        base_path = os.path.abspath(".")  # current folder for .py
+
+    return os.path.join(base_path, relative_path)
 
 # Window voor scherm
 SCREEN_WIDTH = 1000
@@ -8,7 +19,7 @@ Screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Wisp homescreen")
 
 # Achtergrond inladen
-bg_image = pygame.image.load("afbeeldingen/achtergrond/math.png").convert_alpha()
+bg_image = pygame.image.load(resource_path("afbeeldingen/achtergrond/math.png")).convert_alpha()
 bg_image = pygame.transform.scale(bg_image, (1000, 600))
 
 def draw_bg():
