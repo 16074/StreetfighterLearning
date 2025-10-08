@@ -1,0 +1,29 @@
+name: Build Windows EXE
+
+on:
+  workflow_dispatch:  # lets you run it manually from GitHub UI
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'  # or whatever version your script needs
+
+      - name: Install PyInstaller
+        run: pip install pyinstaller
+
+      - name: Build EXE
+        run: pyinstaller --onefile main.py  # change this to your script filename
+
+      - name: Upload built EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-exe
+          path: dist/main.exe  # change if your script has a different name
