@@ -1,0 +1,31 @@
+name: Build Windows EXE
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'  # change if needed
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install pygame pyinstaller
+
+      - name: Build EXE
+        run: pyinstaller --onefile --add-data "afbeeldingen;afbeeldingen" main.py  # <-- replace with your actual script
+
+      - name: Upload built EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-exe
+          path: dist/main.exe
