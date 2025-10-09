@@ -7,7 +7,7 @@ pygame.init()
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 600
 Screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption("Fighter")
+pygame.display.set_caption("Level 1 --- Streetfighter/Pythagoras")
 
 #inladen achtergrond
 bg_image = pygame.image.load("afbeeldingen/achtergrond/Achtergrond.jpg").convert_alpha()

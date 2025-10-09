@@ -16,7 +16,7 @@ def resource_path(relative_path):
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 600
 Screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption("Wisp homescreen")
+pygame.display.set_caption("WiSp --- Home")
 
 # Achtergrond inladen
 bg_image = pygame.image.load(resource_path("afbeeldingen/achtergrond/math.png")).convert_alpha()
@@ -73,9 +73,6 @@ while run:
             run = False
 
     # Check klikken
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            run = False
         if current_screen == "home":
             if button1.is_clicked(event):
                 current_screen = 'game1'
@@ -87,7 +84,7 @@ while run:
     if current_screen == "home":
         draw_bg()
 
-        titeltekst = font2.render("Welkom in Wisp!", True, WHITE)
+        titeltekst = font2.render("Welkom in WiSp!", True, WHITE)
         vraagtekst = font.render("Selecteer hieronder een level om wiskunde mee te oefenen:", True, WHITE)
         Screen.blit(titeltekst, ((SCREEN_WIDTH - titeltekst.get_width()) / 2, 80))
         Screen.blit(vraagtekst, ((SCREEN_WIDTH - vraagtekst.get_width()) / 2, 120))
@@ -95,6 +92,11 @@ while run:
         button1.draw(Screen)
         button2.draw(Screen)
         button3.draw(Screen)
+
+    elif current_screen == "game1":
+        with open("start.py", "r") as f:
+            code = f.read()
+        exec(code)
 
     else:
         # Simpel wit scherm als placeholder voor spel
