@@ -1,6 +1,9 @@
 import pygame
 from fither import Fighter
 from fither import Kak
+from fither import Health
+
+
 pygame.init()
 
 #window voor scherm
@@ -21,6 +24,9 @@ def draw_bg():
 fighter_1 = Fighter(-25,100,)
 fighter_2 = Kak(425,100,)
 
+#asdf;lj
+health_bar_1= Health(175,250)
+health_bar_2= Health(625,250)
 
 #loop
 
@@ -37,6 +43,10 @@ while run:
     # update fighters
     fighter_1.update()
     fighter_2.update()
+
+    #healthbar op scherm
+    health_bar_1.draw(Screen, fighter_1.health, fighter_1.max_health)
+    health_bar_2.draw(Screen, fighter_2.health, fighter_2.max_health)
 
 #event handler
     for event in pygame.event.get():

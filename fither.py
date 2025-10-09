@@ -10,6 +10,8 @@ class Fighter():
         self.image = self.frames[self.frame_index]
         self.rect = self.image.get_rect(topleft=(x, y))
         self.animation_speed = 0.3  # hoe snel frames wisselen
+        self.max_health = 100
+        self.health = self.max_health
 
         #frames tonen
     
@@ -46,6 +48,8 @@ class Kak():
         self.image = self.frames[self.frame_index]
         self.rect = self.image.get_rect(topleft=(x, y))
         self.animation_speed = 0.3  # hoe snel frames wisselen
+        self.max_health = 100
+        self.health = self.max_health
 
         #frames tonen
     
@@ -70,6 +74,16 @@ class Kak():
             self.frame_index = 0
         self.image = self.frames[int(self.frame_index)]
 
-    #def draw(self, surface):
-        #surface.blit(self.image, self.rect)
+class Health:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def draw(self, surface, health, max_health):
+        ratio = health / max_health
+        # rode achtergrond
+        pygame.draw.rect(surface, (255, 0, 0), (self.x, self.y, 200, 20))
+        # groene foreground
+        pygame.draw.rect(surface, (0, 255, 0), (self.x, self.y, 200 * ratio, 20))
         
+
