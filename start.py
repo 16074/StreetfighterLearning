@@ -2,6 +2,7 @@ import pygame
 from fither import Fighter
 from fither import Kak
 from fither import Health
+from fither import Button
 
 
 pygame.init()
@@ -28,6 +29,10 @@ fighter_2 = Kak(425,100,)
 health_bar_1= Health(175,250)
 health_bar_2= Health(625,250)
 
+#Button
+button1 = Button(0, 0, 100, 75, "Escape")
+
+
 #loop
 
 run = True
@@ -35,6 +40,9 @@ while run:
     
     #achtergrond tekenen
     draw_bg()
+
+    #button
+    button1.draw(Screen)
 
     #fighter op scherm
     fighter_1.draw(Screen)

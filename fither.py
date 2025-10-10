@@ -1,5 +1,10 @@
 import pygame
 import os
+# Kleuren en fonts
+BUTTON_COLOR = (128, 0, 128)
+BUTTON_HOVER_COLOR = (108, 70, 117)
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
 
 class Fighter():
     def __init__(self, x, y):
@@ -86,4 +91,27 @@ class Health:
         # groene foreground
         pygame.draw.rect(surface, (0, 255, 0), (self.x, self.y, 200 * ratio, 20))
         
+class Button:
+    def __init__(self, x, y, width, height, text):
+        self.rect = pygame.Rect(x, y, width, height)
+        self.text = text
+        self.font = pygame.font.Font(None, 20)
+        self.color = BUTTON_COLOR
+        self.hover_color = BUTTON_HOVER_COLOR
+
+    def draw(self, surface):
+        mouse_pos = pygame.mouse.get_pos()
+        if self.rect.collidepoint(mouse_pos):
+            pygame.draw.rect(surface, self.hover_color, self.rect)
+        else:
+            pygame.draw.rect(surface, self.color, self.rect)
+
+        text_surface = self.font.render(self.text, True, WHITE)
+        text_rect = text_surface.get_rect(center=self.rect.center)
+        surface.blit(text_surface, text_rect)
+
+    def is_clicked(self, event):
+        return event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and self.rect.collidepoint(event.pos)
+    
+
 
