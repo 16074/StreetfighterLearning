@@ -1,4 +1,6 @@
 import pygame
+import os
+import sys
 from fither import Fighter
 from fither import Kak
 from fither import Health
@@ -60,6 +62,13 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False 
+
+# controleer of de knop is aangeklikt
+    if button1.is_clicked(event):
+        pygame.quit() 
+        os.system("python main.py")  # start main.py opnieuw
+        sys.exit()  # stop dit script
+
 #update display
     pygame.display.update()
 
