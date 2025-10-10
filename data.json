@@ -1,0 +1,454 @@
+{
+    "vragen": [
+    {
+        "vraag": "Wat is 2^3?",
+        "goed_antwoord": "8",
+        "fout_antwoord1": "6",
+        "fout_antwoord2": "9"
+    },
+    {
+        "vraag": "Wat is 5^0?",
+        "goed_antwoord": "1",
+        "fout_antwoord1": "0",
+        "fout_antwoord2": "5"
+    },
+    {
+        "vraag": "Wat is 9^(1/2)?",
+        "goed_antwoord": "3",
+        "fout_antwoord1": "4.5",
+        "fout_antwoord2": "81"
+    },
+    {
+        "vraag": "Wat is 2^-2?",
+        "goed_antwoord": "0.25",
+        "fout_antwoord1": "0.5",
+        "fout_antwoord2": "-4"
+    },
+    {
+        "vraag": "Bereken (3^2) * (3^3)",
+        "goed_antwoord": "3^5",
+        "fout_antwoord1": "3^6",
+        "fout_antwoord2": "3^4"
+    },
+    {
+        "vraag": "Bereken (5^4) / (5^2)",
+        "goed_antwoord": "5^2",
+        "fout_antwoord1": "5^6",
+        "fout_antwoord2": "5^8"
+    },
+    {
+        "vraag": "Wat is (7^0) * (2^3)?",
+        "goed_antwoord": "8",
+        "fout_antwoord1": "0",
+        "fout_antwoord2": "7"
+    },
+    {
+        "vraag": "Wat is (4^3)^2?",
+        "goed_antwoord": "4^6",
+        "fout_antwoord1": "4^5",
+        "fout_antwoord2": "8^6"
+    },
+    {
+        "vraag": "Bereken (2^5) / (2^3)",
+        "goed_antwoord": "2^2",
+        "fout_antwoord1": "2^8",
+        "fout_antwoord2": "2^15"
+    },
+    {
+        "vraag": "Wat is 16^(1/2)?",
+        "goed_antwoord": "4",
+        "fout_antwoord1": "8",
+        "fout_antwoord2": "2"
+    },
+    {
+        "vraag": "Bereken (x^3) * (x^4)",
+        "goed_antwoord": "x^7",
+        "fout_antwoord1": "x^12",
+        "fout_antwoord2": "x^1"
+    },
+    {
+        "vraag": "Bereken (y^5) / (y^2)",
+        "goed_antwoord": "y^3",
+        "fout_antwoord1": "y^10",
+        "fout_antwoord2": "y^7"
+    },
+    {
+        "vraag": "Wat is a^0?",
+        "goed_antwoord": "1",
+        "fout_antwoord1": "a",
+        "fout_antwoord2": "0"
+    },
+    {
+        "vraag": "Wat is (2^3)^0?",
+        "goed_antwoord": "1",
+        "fout_antwoord1": "8",
+        "fout_antwoord2": "0"
+    },
+    {
+        "vraag": "Bereken (3^2) * (3^-1)",
+        "goed_antwoord": "3^1",
+        "fout_antwoord1": "3^3",
+        "fout_antwoord2": "3^-3"
+    },
+    {
+        "vraag": "Wat is 10^-1?",
+        "goed_antwoord": "0.1",
+        "fout_antwoord1": "10",
+        "fout_antwoord2": "-1"
+    },
+    {
+        "vraag": "Bereken (a^4) / (a^4)",
+        "goed_antwoord": "1",
+        "fout_antwoord1": "a^0",
+        "fout_antwoord2": "a^8"
+    },
+    {
+        "vraag": "Wat is 25^(1/2)?",
+        "goed_antwoord": "5",
+        "fout_antwoord1": "10",
+        "fout_antwoord2": "625"
+    },
+    {
+        "vraag": "Bereken (2^0.5)^2",
+        "goed_antwoord": "2",
+        "fout_antwoord1": "4",
+        "fout_antwoord2": "0.5"
+    },
+    {
+        "vraag": "Wat is (3^1) * (3^0)?",
+        "goed_antwoord": "3",
+        "fout_antwoord1": "1",
+        "fout_antwoord2": "0"
+    },
+    {
+        "vraag": "Bereken (5^3)^2",
+        "goed_antwoord": "5^6",
+        "fout_antwoord1": "5^5",
+        "fout_antwoord2": "25^6"
+    },
+    {
+        "vraag": "Bereken (4^5) / (4^2)",
+        "goed_antwoord": "4^3",
+        "fout_antwoord1": "4^7",
+        "fout_antwoord2": "2^3"
+    },
+    {
+        "vraag": "Wat is 81^(1/4)?",
+        "goed_antwoord": "3",
+        "fout_antwoord1": "9",
+        "fout_antwoord2": "27"
+    },
+    {
+        "vraag": "Wat is 8^(2/3)?",
+        "goed_antwoord": "4",
+        "fout_antwoord1": "16",
+        "fout_antwoord2": "64"
+    },
+    {
+        "vraag": "Bereken (x^0) * (x^7)",
+        "goed_antwoord": "x^7",
+        "fout_antwoord1": "x^0",
+        "fout_antwoord2": "1"
+    },
+    {
+        "vraag": "Wat is 10^3?",
+        "goed_antwoord": "1000",
+        "fout_antwoord1": "100",
+        "fout_antwoord2": "10"
+    },
+    {
+        "vraag": "Bereken (6^2) * (6^-1)",
+        "goed_antwoord": "6^1",
+        "fout_antwoord1": "6^3",
+        "fout_antwoord2": "6^-3"
+    },
+    {
+        "vraag": "Wat is 1^100?",
+        "goed_antwoord": "1",
+        "fout_antwoord1": "0",
+        "fout_antwoord2": "100"
+    },
+    {
+        "vraag": "Bereken (2^4) / (2^1)",
+        "goed_antwoord": "2^3",
+        "fout_antwoord1": "2^5",
+        "fout_antwoord2": "2^1"
+    },
+    {
+        "vraag": "Wat is 49^(1/2)?",
+        "goed_antwoord": "7",
+        "fout_antwoord1": "14",
+        "fout_antwoord2": "343"
+    },
+    {
+        "vraag": "Bereken (5^3) * (5^2)",
+        "goed_antwoord": "5^5",
+        "fout_antwoord1": "5^6",
+        "fout_antwoord2": "10^5"
+    },
+    {
+        "vraag": "Wat is (9^0.5)^3?",
+        "goed_antwoord": "27",
+        "fout_antwoord1": "9",
+        "fout_antwoord2": "81"
+    },
+    {
+        "vraag": "Bereken (x^6) / (x^4)",
+        "goed_antwoord": "x^2",
+        "fout_antwoord1": "x^10",
+        "fout_antwoord2": "x^12"
+    },
+    {
+        "vraag": "Wat is 3^-3?",
+        "goed_antwoord": "1/27",
+        "fout_antwoord1": "27",
+        "fout_antwoord2": "-27"
+    },
+    {
+        "vraag": "Bereken (7^2)^3",
+        "goed_antwoord": "7^6",
+        "fout_antwoord1": "7^5",
+        "fout_antwoord2": "14^6"
+    },
+    {
+        "vraag": "Wat is 0^5?",
+        "goed_antwoord": "0",
+        "fout_antwoord1": "1",
+        "fout_antwoord2": "5"
+    },
+    {
+        "vraag": "Bereken (10^4) / (10^2)",
+        "goed_antwoord": "10^2",
+        "fout_antwoord1": "10^6",
+        "fout_antwoord2": "1000"
+    },
+    {
+        "vraag": "Wat is 2^(3+2)?",
+        "goed_antwoord": "32",
+        "fout_antwoord1": "10",
+        "fout_antwoord2": "6"
+    },
+    {
+        "vraag": "Bereken (x^3)^4",
+        "goed_antwoord": "x^12",
+        "fout_antwoord1": "x^7",
+        "fout_antwoord2": "x^81"
+    },
+    {
+        "vraag": "Wat is 27^(1/3)?",
+        "goed_antwoord": "3",
+        "fout_antwoord1": "9",
+        "fout_antwoord2": "81"
+    },
+    {
+        "vraag": "Bereken (4^2) * (4^3)",
+        "goed_antwoord": "4^5",
+        "fout_antwoord1": "4^6",
+        "fout_antwoord2": "8^5"
+    },
+    {
+        "vraag": "Wat is 100^0?",
+        "goed_antwoord": "1",
+        "fout_antwoord1": "0",
+        "fout_antwoord2": "100"
+    },
+    {
+        "vraag": "Bereken (a^5) / (a^5)",
+        "goed_antwoord": "1",
+        "fout_antwoord1": "a^0",
+        "fout_antwoord2": "a^10"
+    },
+    {
+        "vraag": "Wat is 5^(1/2)?",
+        "goed_antwoord": "√5",
+        "fout_antwoord1": "25",
+        "fout_antwoord2": "2.5"
+    },
+    {
+        "vraag": "Bereken (2^3) * (2^2) / (2^4)",
+        "goed_antwoord": "2^1",
+        "fout_antwoord1": "2^5",
+        "fout_antwoord2": "2^6"
+    },
+    {
+        "vraag": "Wat is 1^0?",
+        "goed_antwoord": "1",
+        "fout_antwoord1": "0",
+        "fout_antwoord2": "Onbepaald"
+    },
+    {
+        "vraag": "Bereken (3^4) / (3^2)",
+        "goed_antwoord": "3^2",
+        "fout_antwoord1": "3^6",
+        "fout_antwoord2": "9"
+    },
+    {
+        "vraag": "Wat is (8^1) * (8^0)?",
+        "goed_antwoord": "8",
+        "fout_antwoord1": "1",
+        "fout_antwoord2": "0"
+    },
+    {
+        "vraag": "Bereken (9^2) / (9^1)",
+        "goed_antwoord": "9^1",
+        "fout_antwoord1": "9^3",
+        "fout_antwoord2": "81"
+    },
+    {
+        "vraag": "Wat is (16^(1/4))^2?",
+        "goed_antwoord": "4",
+        "fout_antwoord1": "2",
+        "fout_antwoord2": "16"
+    },
+    {
+        "vraag": "Bereken (2^7) / (2^4)",
+        "goed_antwoord": "2^3",
+        "fout_antwoord1": "2^11",
+        "fout_antwoord2": "2^28"
+    },
+    {
+        "vraag": "Wat is 0^0?",
+        "goed_antwoord": "Onbepaald",
+        "fout_antwoord1": "0",
+        "fout_antwoord2": "1"
+    },
+    {
+        "vraag": "Bereken (x^0) * (x^0)",
+        "goed_antwoord": "1",
+        "fout_antwoord1": "x^0",
+        "fout_antwoord2": "0"
+    },
+    {
+        "vraag": "Wat is 3^(1/3)?",
+        "goed_antwoord": "³√3",
+        "fout_antwoord1": "9",
+        "fout_antwoord2": "1/3"
+    },
+    {
+        "vraag": "Bereken (5^0) + (5^1)",
+        "goed_antwoord": "6",
+        "fout_antwoord1": "5",
+        "fout_antwoord2": "1"
+    },
+    {
+        "vraag": "Wat is (10^2)^3?",
+        "goed_antwoord": "10^6",
+        "fout_antwoord1": "10^5",
+        "fout_antwoord2": "1000"
+    },
+    {
+        "vraag": "Bereken (7^3) * (7^-1)",
+        "goed_antwoord": "7^2",
+        "fout_antwoord1": "7^4",
+        "fout_antwoord2": "7^-4"
+    },
+    {
+        "vraag": "Wat is 4^-2?",
+        "goed_antwoord": "1/16",
+        "fout_antwoord1": "16",
+        "fout_antwoord2": "1/8"
+    },
+    {
+        "vraag": "Bereken (a^2)^3",
+        "goed_antwoord": "a^6",
+        "fout_antwoord1": "a^5",
+        "fout_antwoord2": "a^8"
+    },
+    {
+        "vraag": "Wat is (27^(1/3))^2?",
+        "goed_antwoord": "9",
+        "fout_antwoord1": "3",
+        "fout_antwoord2": "6"
+    },
+    {
+        "vraag": "Bereken (2^4) * (2^-2)",
+        "goed_antwoord": "2^2",
+        "fout_antwoord1": "2^6",
+        "fout_antwoord2": "2^-8"
+    },
+    {
+        "vraag": "Wat is (x^5) / (x^0)?",
+        "goed_antwoord": "x^5",
+        "fout_antwoord1": "x^0",
+        "fout_antwoord2": "1"
+    },
+    {
+        "vraag": "Bereken (9^3) / (9^3)",
+        "goed_antwoord": "1",
+        "fout_antwoord1": "9^0",
+        "fout_antwoord2": "9^6"
+    },
+    {
+        "vraag": "Wat is 2^(0.5)?",
+        "goed_antwoord": "√2",
+        "fout_antwoord1": "0.5",
+        "fout_antwoord2": "2"
+    },
+    {
+        "vraag": "Bereken (10^3) * (10^2)",
+        "goed_antwoord": "10^5",
+        "fout_antwoord1": "10^6",
+        "fout_antwoord2": "100"
+    },
+    {
+        "vraag": "Wat is 8^(1/3)?",
+        "goed_antwoord": "2",
+        "fout_antwoord1": "3",
+        "fout_antwoord2": "4"
+    },
+    {
+        "vraag": "Bereken (3^4) * (3^-2)",
+        "goed_antwoord": "3^2",
+        "fout_antwoord1": "3^6",
+        "fout_antwoord2": "3^-6"
+    },
+    {
+        "vraag": "Wat is (16^(1/2)) / (4^1)?",
+        "goed_antwoord": "1",
+        "fout_antwoord1": "2",
+        "fout_antwoord2": "4"
+    },
+    {
+        "vraag": "Bereken (5^1) * (5^0)",
+        "goed_antwoord": "5",
+        "fout_antwoord1": "1",
+        "fout_antwoord2": "0"
+    },
+    {
+        "vraag": "Wat is 1^-1?",
+        "goed_antwoord": "1",
+        "fout_antwoord1": "-1",
+        "fout_antwoord2": "0"
+    },
+    {
+        "vraag": "Bereken (x^4) / (x^1)",
+        "goed_antwoord": "x^3",
+        "fout_antwoord1": "x^5",
+        "fout_antwoord2": "x^1"
+    },
+    {
+        "vraag": "Wat is 0^-1?",
+        "goed_antwoord": "Onbepaald",
+        "fout_antwoord1": "0",
+        "fout_antwoord2": "1"
+    },
+    {
+        "vraag": "Bereken (2^2)^3",
+        "goed_antwoord": "2^6",
+        "fout_antwoord1": "2^5",
+        "fout_antwoord2": "8^3"
+    },
+    {
+        "vraag": "Wat is 100^(1/2)?",
+        "goed_antwoord": "10",
+        "fout_antwoord1": "100",
+        "fout_antwoord2": "50"
+    },
+    {
+        "vraag": "Bereken (7^1) * (7^2)",
+        "goed_antwoord": "7^3",
+        "fout_antwoord1": "14^3",
+        "fout_antwoord2": "7^1"
+    }
+]
+}

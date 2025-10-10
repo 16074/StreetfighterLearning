@@ -59,7 +59,11 @@ while run:
 #event handler
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            run = False 
+            run = False
+        if button1.is_clicked(event):
+            with open("main.py", "r") as f:
+                code = f.read()
+            exec(code)
 #update display
     pygame.display.update()
 
