@@ -98,6 +98,11 @@ while run:
             code = f.read()
         exec(code)
 
+    elif current_screen == "game2":
+        with open("sprite.py", "r") as f:
+            code = f.read()
+        exec(code)
+
     else:
         # Simpel wit scherm als placeholder voor spel
         Screen.fill(WHITE)

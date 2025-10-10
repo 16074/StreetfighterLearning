@@ -32,7 +32,7 @@ health_bar_1= Health(175,250)
 health_bar_2= Health(625,250)
 
 #Button
-button1 = Button(0, 0, 100, 75, "Escape")
+button1 = Button(0, 0, 100, 40, "Terug")
 
 
 #loop
