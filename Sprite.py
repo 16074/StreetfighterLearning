@@ -44,7 +44,7 @@ score_height = blbl.get_height()
 SCREENHEIGHT = score_height + HEIGHT
 page = pygame.display.set_mode((WIDTH, SCREENHEIGHT))
 screen = pygame.Surface((WIDTH, HEIGHT))
-pygame.display.set_caption("NKP's class room")
+pygame.display.set_caption("Level 2 --- Sollies klaslokaal / Machtrekenen")
 clock = pygame.time.Clock()
 objects = []
 objects_rect = []
@@ -531,7 +531,7 @@ def check_vuur_collision(player_rect):
 #vuurdeel einde
 
 #setting scherm
-settings_text1 = "In NKPs klaslokaal moet jij, meneer Achat, \n de orde in de klas zien te houden. Dit kan door vragen \nuit de klas te beantwoorden en af en toe een brandje te blussen. \n  Dit moet zo snel mogelijk, zodat je productiviteitsstreep (midden-boven)\n zo groen mogelijk blijft. Alle vragen uit de klas gaan \n over het rekenen met machten. "
+settings_text1 = "In Sollies klaslokaal moet jij, meneer Sollie, \n de orde in de klas zien te houden. Dit kan door vragen \nuit de klas te beantwoorden en af en toe een brandje te blussen. \n  Dit moet zo snel mogelijk, zodat je productiviteitsstreep (midden-boven)\n zo groen mogelijk blijft. Alle vragen uit de klas gaan \n over het rekenen met machten. "
 settings_text1_lijst = settings_text1.split("\n")
 settings_text2 = """W/A/S/D : bewegen\n
 Spatie/Linkermuisknop : schieten\n 
@@ -626,7 +626,7 @@ class Button:
         return event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and self.rect.collidepoint(event.pos)
 
 #Button
-button4 = Button(0, 0, 100, 40, "Terug")
+button4 = Button(0, 0, 100, 40, "Home")
 
 while NOTGAMEOVER:
     

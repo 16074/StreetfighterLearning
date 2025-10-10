@@ -59,7 +59,7 @@ class Button:
 
 # Maak knoppen één keer aan
 button1 = Button(300, 210, 400, 75, "Streetfighter - Pythagoras")
-button2 = Button(300, 310, 400, 75, "NKPgame - Machtrekenen")
+button2 = Button(300, 310, 400, 75, "Sollies klaslokaal - Machtrekenen")
 button3 = Button(300, 410, 400, 75, "Platformer - SosCasToa")
 
 current_screen = "home"
@@ -102,6 +102,11 @@ while run:
         with open("sprite.py", "r") as f:
             code = f.read()
         exec(code)
+
+#    elif current_screen == "game3":
+#        with open(".py", "r") as f:
+#            code = f.read()
+#        exec(code)        
 
     else:
         # Simpel wit scherm als placeholder voor spel
