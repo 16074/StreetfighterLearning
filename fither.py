@@ -208,3 +208,5 @@ class Vraag:
                 self.correct = False
         except ValueError:
             self.correct = False
+        if not self.active:
+            return

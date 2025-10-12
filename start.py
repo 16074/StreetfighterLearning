@@ -76,7 +76,7 @@ while run:
         if event.type == pygame.QUIT:
             run = False 
 
-    vraag_window.handle_event(event)
+        vraag_window.handle_event(event)
 
     if vraag_knop.is_clicked(event):
         vraag_window.active = True  # opent de vraag
