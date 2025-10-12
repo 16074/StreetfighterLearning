@@ -1,5 +1,6 @@
 import pygame
 import os
+import random
 # Kleuren en fonts
 BUTTON_COLOR = (128, 0, 128)
 BUTTON_HOVER_COLOR = (108, 70, 117)
@@ -113,5 +114,97 @@ class Button:
     def is_clicked(self, event):
         return event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and self.rect.collidepoint(event.pos)
     
+import pygame
+import random
 
+class Vraag:
+    def __init__(self, x, y, width, height):
+        self.rect = pygame.Rect(x, y, width, height)
+        self.font = pygame.font.Font(None, 36)
+        self.small_font = pygame.font.Font(None, 28)
+        self.active = False        # bepaalt of het venster zichtbaar is
+        self.user_text = ""        # wat de speler intypt
+        self.correct = None        # status: goed/fout/geen antwoord nog
 
+        # willekeurige som maken (bijv. vermenigvuldiging)
+        self.num1 = random.randint(1, 10)
+        self.num2 = random.randint(1, 10)
+        self.answer = self.num1 * self.num2
+
+        # knop om te bevestigen
+        self.button_rect = pygame.Rect(
+            x + width // 2 - 50, 
+            y + height - 60, 
+            100, 
+            40
+        )
+
+    def draw(self, surface):
+        """Teken het venster op het scherm"""
+        if not self.active:
+            return
+
+        # achtergrond venster
+        pygame.draw.rect(surface, (200, 200, 255), self.rect)
+        pygame.draw.rect(surface, (0, 0, 0), self.rect, 3)
+
+        # vraagtekst
+        vraag_text = self.font.render(
+            f"Wat is {self.num1} × {self.num2}?", True, (0, 0, 0)
+        )
+        surface.blit(vraag_text, (self.rect.x + 20, self.rect.y + 20))
+
+        # invoerveld
+        input_rect = pygame.Rect(self.rect.x + 30, self.rect.y + 80, 140, 40)
+        pygame.draw.rect(surface, (255, 255, 255), input_rect)
+        pygame.draw.rect(surface, (0, 0, 0), input_rect, 2)
+
+        # getypte tekst
+        input_surface = self.small_font.render(self.user_text, True, (0, 0, 0))
+        surface.blit(input_surface, (input_rect.x + 10, input_rect.y + 8))
+
+        # bevestig-knop
+        pygame.draw.rect(surface, (150, 150, 255), self.button_rect)
+        btn_text = self.small_font.render("Bevestig", True, (0, 0, 0))
+        surface.blit(
+            btn_text,
+            (
+                self.button_rect.centerx - btn_text.get_width() // 2,
+                self.button_rect.centery - btn_text.get_height() // 2
+            )
+        )
+
+        # feedback bij goed/fout antwoord
+        if self.correct is True:
+            result_text = self.small_font.render("✅ Goed zo!", True, (0, 200, 0))
+            surface.blit(result_text, (self.rect.x + 30, self.rect.y + 140))
+        elif self.correct is False:
+            result_text = self.small_font.render("❌ Fout! Probeer opnieuw.", True, (200, 0, 0))
+            surface.blit(result_text, (self.rect.x + 30, self.rect.y + 140))
+
+    def handle_event(self, event):
+        """Verwerk toetsen en muisklikken"""
+        if not self.active:
+            return
+
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RETURN:
+                self.check_answer()
+            elif event.key == pygame.K_BACKSPACE:
+                self.user_text = self.user_text[:-1]
+            elif event.unicode.isnumeric():
+                self.user_text += event.unicode
+
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            if self.button_rect.collidepoint(event.pos):
+                self.check_answer()
+
+    def check_answer(self):
+        """Controleer het antwoord"""
+        try:
+            if int(self.user_text) == self.answer:
+                self.correct = True
+            else:
+                self.correct = False
+        except ValueError:
+            self.correct = False

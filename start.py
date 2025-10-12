@@ -5,6 +5,7 @@ from fither import Fighter
 from fither import Kak
 from fither import Health
 from fither import Button
+from fither import Vraag
 
 
 pygame.init()
@@ -32,7 +33,13 @@ health_bar_1= Health(175,250)
 health_bar_2= Health(625,250)
 
 #Button
-button1 = Button(0, 0, 100, 40, "Home")
+button1 = Button(0, 0, 100, 40, "Terug")
+
+#yo
+vraag_window = Vraag(300, 150, 400, 250)
+
+#vraagknop
+vraag_knop = Button(500, 0, 120, 40, "Vraag")
 
 
 #loop
@@ -58,16 +65,27 @@ while run:
     health_bar_1.draw(Screen, fighter_1.health, fighter_1.max_health)
     health_bar_2.draw(Screen, fighter_2.health, fighter_2.max_health)
 
+    #vraagknop draw
+    vraag_knop.draw(Screen)
+
+    #vraag op scherm
+    vraag_window.draw(Screen)
+
 #event handler
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False 
 
+    vraag_window.handle_event(event)
+
+    if vraag_knop.is_clicked(event):
+        vraag_window.active = True  # opent de vraag
+
 # controleer of de knop is aangeklikt
     if button1.is_clicked(event):
         pygame.quit() 
-        os.system("python main.py")  # start main.py opnieuw
-        sys.exit()  # stop dit script
+        os.system("python main.py")
+        sys.exit()
 
 #update display
     pygame.display.update()
