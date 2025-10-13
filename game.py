@@ -27,24 +27,24 @@ score = 0
 white = (255, 255, 255)
 
 #afbeeldingen laden
-achtergrond_img = pygame.image.load('C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\achtergrond.png')
-achtergrond_boss_img = pygame.image.load('C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\achtergrond_boss.png')
-grond_img = pygame.image.load('C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\grond.png')
-gras_img = pygame.image.load('C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\gras.png')
-restart_img = pygame.image.load('C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\restart.png')
-play_img = pygame.image.load('C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\play.png')
-stop_img = pygame.image.load('C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\stop.png')
+achtergrond_img = pygame.image.load('achtergrond_p.png')
+achtergrond_boss_img = pygame.image.load('achtergrond_boss.png')
+grond_img = pygame.image.load('grond.png')
+gras_img = pygame.image.load('gras.png')
+restart_img = pygame.image.load('restart.png')
+play_img = pygame.image.load('play.png')
+stop_img = pygame.image.load('stop.png')
 
 #geluiden laden
-pygame.mixer.music.load('C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\bg_music.mp3')
+pygame.mixer.music.load('bg_music.mp3')
 pygame.mixer.music.play(-1, 0.0, 5000)
-coin_fx = pygame.mixer.Sound('C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\coin.mp3')
+coin_fx = pygame.mixer.Sound('coin.mp3')
 coin_fx.set_volume(0.5)
-jump_fx = pygame.mixer.Sound('C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\jump.mp3')
+jump_fx = pygame.mixer.Sound('jump.mp3')
 jump_fx.set_volume(0.5)
-dead_fx = pygame.mixer.Sound('C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\dood.mp3')
+dead_fx = pygame.mixer.Sound('dood.mp3')
 dead_fx.set_volume(0.5)
-victory_fx = pygame.mixer.Sound('C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\victory.mp3')
+victory_fx = pygame.mixer.Sound('victory.mp3')
 victory_fx.set_volume(0.5)
 
 #tekst laden
@@ -54,7 +54,7 @@ def draw_text(text, font, text_colour, x, y):
 
 def laad_levels(level):
     world_data = []
-    with open (f'C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\level{level}.txt', 'r') as file:
+    with open (f'level{level}.txt', 'r') as file:
         for line in file:
             row = list(map(int, line.split()))
             world_data.append(row)
@@ -246,12 +246,12 @@ class Player():
         self.index = 0
         self.counter = 0
         for num in range(1, 5):
-            img_right = pygame.image.load(f'C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\meisje{num}.png')
+            img_right = pygame.image.load(f'meisje{num}.png')
             img_right = pygame.transform.scale(img_right, (32, 64))
             img_left = pygame.transform.flip(img_right, True, False)
             self.images_right.append(img_right)
             self.images_left.append(img_left)
-        self.dead_img = pygame.image.load('C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\dood.png')
+        self.dead_img = pygame.image.load('dood.png')
         self.image = self.images_right[self.index]
         self.rect = self.image.get_rect()
         self.rect.x = x
@@ -315,7 +315,7 @@ class World():
 class Enemy(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
-        blob_img = pygame.image.load("C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\blob.png")
+        blob_img = pygame.image.load("blob.png")
         self.image = pygame.transform.scale(blob_img, (tile_size, tile_size))
         self.rect = self.image.get_rect()
         self.rect.x = x
@@ -333,7 +333,7 @@ class Enemy(pygame.sprite.Sprite):
 class Enemy_boss(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
-        blob_img = pygame.image.load("C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\blob_boss.png")
+        blob_img = pygame.image.load("blob_boss.png")
         self.image = pygame.transform.scale(blob_img, (tile_size, tile_size))
         self.rect = self.image.get_rect()
         self.rect.x = x
@@ -351,7 +351,7 @@ class Enemy_boss(pygame.sprite.Sprite):
 class Lava(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
-        lava_img = pygame.image.load("C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\lava.png")
+        lava_img = pygame.image.load("lava.png")
         self.image = pygame.transform.scale(lava_img, (tile_size, tile_size // 2))
         self.rect = self.image.get_rect()
         self.rect.x = x
@@ -360,7 +360,7 @@ class Lava(pygame.sprite.Sprite):
 class Coin(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
-        coin_img = pygame.image.load("C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\coin.png")
+        coin_img = pygame.image.load("coin.png")
         self.image = pygame.transform.scale(coin_img, (tile_size // 2, tile_size // 2))
         self.rect = self.image.get_rect()
         self.rect.center = (x, y)
@@ -368,7 +368,7 @@ class Coin(pygame.sprite.Sprite):
 class Door(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
-        door_img = pygame.image.load("C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\door.png")
+        door_img = pygame.image.load("door.png")
         self.image = pygame.transform.scale(door_img, (tile_size, int(tile_size * 1.5)))
         self.rect = self.image.get_rect()
         self.rect.x = x
@@ -377,7 +377,7 @@ class Door(pygame.sprite.Sprite):
 class Platform_horizontaal(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
-        platform_img = pygame.image.load("C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\gras.png")
+        platform_img = pygame.image.load("gras.png")
         self.image = pygame.transform.scale(platform_img, (tile_size, (tile_size // 2)))
         self.rect = self.image.get_rect()
         self.rect.x = x
@@ -395,7 +395,7 @@ class Platform_horizontaal(pygame.sprite.Sprite):
 class Platform_verticaal(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
-        platform_img = pygame.image.load("C:\\Users\Willemijn Verhoef\\Onedrive - Kalsbeek College\\Klas 5\\Informatica\\Python\\gras.png")
+        platform_img = pygame.image.load("gras.png")
         self.image = pygame.transform.scale(platform_img, (tile_size, (tile_size // 2)))
         self.rect = self.image.get_rect()
         self.rect.x = x
