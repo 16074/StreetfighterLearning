@@ -103,10 +103,10 @@ while run:
             code = f.read()
         exec(code)
 
-#    elif current_screen == "game3":
-#        with open(".py", "r") as f:
-#            code = f.read()
-#        exec(code)        
+    elif current_screen == "game3":
+        with open("game.py", "r") as f:
+            code = f.read()
+            exec(code)        
 
     else:
         # Simpel wit scherm als placeholder voor spel
