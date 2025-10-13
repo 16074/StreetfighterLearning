@@ -65,6 +65,7 @@ def reset_level(level):
     blob_group.empty()
     lava_group.empty()
     door_group.empty()
+    door_fake_group.empty()
     world = World(laad_levels(level))
     return world
 
@@ -187,6 +188,11 @@ class Player():
                 game_over = -1
                 dead_fx.play()
 
+            #kijken voor botsing met fake door
+            if pygame.sprite.spritecollide(self, door_fake_group, False):
+                game_over = -1
+                dead_fx.play()
+
             #kijken voor botsing met deur
             if pygame.sprite.spritecollide(self, door_group, False):
                 game_over = 1
@@ -306,6 +312,9 @@ class World():
                 if tile == 8:
                     platform_verticaal = Platform_verticaal(column_count * tile_size, row_count * tile_size)
                     platform_verticaal_group.add(platform_verticaal)
+                if tile == 9:
+                    door_fake = Door_fake(column_count * tile_size, row_count * tile_size - (tile_size // 2))
+                    door_fake_group.add(door_fake)
                 column_count += 1
             row_count += 1
     def draw(self):
@@ -410,6 +419,15 @@ class Platform_verticaal(pygame.sprite.Sprite):
             self.move_direction *= -1
             self.move_counter *= -1
 
+class Door_fake(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        pygame.sprite.Sprite.__init__(self)
+        door_fake_img = pygame.image.load("door.png")
+        self.image = pygame.transform.scale(door_fake_img, (tile_size, int(tile_size * 1.5)))
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
 player = Player(32, 704 - 128)
 
 blob_group = pygame.sprite.Group()
@@ -418,6 +436,7 @@ coin_group = pygame.sprite.Group()
 door_group = pygame.sprite.Group()
 platform_horizontaal_group = pygame.sprite.Group()
 platform_verticaal_group = pygame.sprite.Group()
+door_fake_group = pygame.sprite.Group()
 
 world = World(laad_levels(level))
 
@@ -466,6 +485,7 @@ while run:
         door_group.draw(screen)
         platform_horizontaal_group.draw(screen)
         platform_verticaal_group.draw(screen)
+        door_fake_group.draw(screen)
 
         game_over = player.update(game_over)
 
