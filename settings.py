@@ -1,6 +1,12 @@
 #screen settings
-WIDTH = 600
-HEIGHT = 685
+import pygame
+pygame.init()
+
+info = pygame.display.Info()
+WIDTH, HEIGHT = info.current_w, info.current_h
+
+Screen = pygame.display.set_mode((WIDTH, HEIGHT))
+
 FPS = 60
 
 #button settings
