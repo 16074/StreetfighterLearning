@@ -122,9 +122,9 @@ class Vraag:
         self.rect = pygame.Rect(x, y, width, height)
         self.font = pygame.font.Font(None, 36)
         self.small_font = pygame.font.Font(None, 28)
-        self.active = False        # bepaalt of het venster zichtbaar is
-        self.user_text = ""        # wat de speler intypt
-        self.correct = None        # status: goed/fout/geen antwoord nog
+        self.active = False        
+        self.user_text = ""        
+        self.correct = None        
 
         # willekeurige som maken (bijv. vermenigvuldiging)
         self.num1 = random.randint(1, 10)

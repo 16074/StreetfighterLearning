@@ -86,7 +86,19 @@ while run:
         pygame.quit() 
         os.system("python main.py")
         sys.exit()
+# Controleer of er net een antwoord is gegeven
+    if vraag_window.correct is True:
+        fighter_2.health -= 10          # schade aan tegenstander
+        vraag_window.correct = None 
+        vraag_window = Vraag(300, 150, 400, 250)
+        vraag_window.active = False    # reset status
 
+    elif vraag_window.correct is False:
+        fighter_1.health -= 10          # schade aan speler
+        vraag_window.correct = None 
+        vraag_window = Vraag(300, 150, 400, 250)
+        vraag_window.active = False
+            # reset status
 #update display
     pygame.display.update()
 

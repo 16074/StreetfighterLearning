@@ -15,12 +15,16 @@ def resource_path(relative_path):
 # Window voor scherm
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 600
-Screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+
+info = pygame.display.Info()
+screen_width, screen_height = info.current_w, info.current_h
+
+Screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("WiSp --- Home")
 
 # Achtergrond inladen
 bg_image = pygame.image.load(resource_path("afbeeldingen/achtergrond/math.png")).convert_alpha()
-bg_image = pygame.transform.scale(bg_image, (1000, 600))
+bg_image = pygame.transform.scale(bg_image, (screen_width, screen_height))
 
 def draw_bg():
     Screen.blit(bg_image, (0, 0))
@@ -58,9 +62,9 @@ class Button:
         return event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and self.rect.collidepoint(event.pos)
 
 # Maak knoppen één keer aan
-button1 = Button(300, 210, 400, 75, "Streetfighter - Pythagoras")
-button2 = Button(300, 310, 400, 75, "Sollies klaslokaal - Machtrekenen")
-button3 = Button(300, 410, 400, 75, "Platformer - SosCasToa")
+button1 = Button(((screen_width-400)/2), 210, 400, 75, "Streetfighter - Pythagoras")
+button2 = Button(((screen_width-400)/2), 310, 400, 75, "Sollies klaslokaal - Machtrekenen")
+button3 = Button(((screen_width-400)/2), 410, 400, 75, "Platformer - SosCasToa")
 
 current_screen = "home"
 
@@ -86,8 +90,8 @@ while run:
 
         titeltekst = font2.render("Welkom in WiSp!", True, WHITE)
         vraagtekst = font.render("Selecteer hieronder een level om wiskunde mee te oefenen:", True, WHITE)
-        Screen.blit(titeltekst, ((SCREEN_WIDTH - titeltekst.get_width()) / 2, 80))
-        Screen.blit(vraagtekst, ((SCREEN_WIDTH - vraagtekst.get_width()) / 2, 120))
+        Screen.blit(titeltekst, ((screen_width - titeltekst.get_width()) / 2, 80))
+        Screen.blit(vraagtekst, ((screen_width - vraagtekst.get_width()) / 2, 120))
 
         button1.draw(Screen)
         button2.draw(Screen)
