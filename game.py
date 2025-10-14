@@ -313,7 +313,7 @@ class World():
                     platform_verticaal = Platform_verticaal(column_count * tile_size, row_count * tile_size)
                     platform_verticaal_group.add(platform_verticaal)
                 if tile == 9:
-                    door_fake = Door_fake(column_count * tile_size, row_count * tile_size - (tile_size // 2))
+                    door_fake = Door_fake(column_count * tile_size, row_count * tile_size + (tile_size // 2))
                     door_fake_group.add(door_fake)
                 column_count += 1
             row_count += 1
