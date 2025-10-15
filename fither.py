@@ -1,6 +1,8 @@
 import pygame
 import os
 import random
+from Vragen import PYTHAGORAS_VRAGEN  
+
 # Kleuren en fonts
 BUTTON_COLOR = (128, 0, 128)
 BUTTON_HOVER_COLOR = (108, 70, 117)
@@ -114,9 +116,6 @@ class Button:
     def is_clicked(self, event):
         return event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and self.rect.collidepoint(event.pos)
     
-import pygame
-import random
-
 class Vraag:
     def __init__(self, x, y, width, height):
         self.rect = pygame.Rect(x, y, width, height)
@@ -126,10 +125,10 @@ class Vraag:
         self.user_text = ""        
         self.correct = None        
 
-        # willekeurige som maken (bijv. vermenigvuldiging)
-        self.num1 = random.randint(1, 10)
-        self.num2 = random.randint(1, 10)
-        self.answer = self.num1 * self.num2
+        #
+        self.vraag_data = random.choice(PYTHAGORAS_VRAGEN)
+        self.vraag_tekst = self.vraag_data["vraag"]
+        self.answer = self.vraag_data["antwoord"]
 
         # knop om te bevestigen
         self.button_rect = pygame.Rect(
@@ -149,9 +148,7 @@ class Vraag:
         pygame.draw.rect(surface, (0, 0, 0), self.rect, 3)
 
         # vraagtekst
-        vraag_text = self.font.render(
-            f"Wat is {self.num1} × {self.num2}?", True, (0, 0, 0)
-        )
+        vraag_text = self.font.render(self.vraag_tekst, True, (0, 0, 0))
         surface.blit(vraag_text, (self.rect.x + 20, self.rect.y + 20))
 
         # invoerveld
