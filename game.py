@@ -9,7 +9,7 @@ clock = pygame.time.Clock()
 fps = 60
 
 screen = pygame.display.set_mode((928, 704))
-pygame.display.set_caption("Mario game")
+pygame.display.set_caption("Platformer")
 
 #lettertype definiëren
 font = pygame.font.SysFont('Bauhaus 93', 40)

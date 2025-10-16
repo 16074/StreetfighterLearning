@@ -24,7 +24,7 @@ SPELERRADIUS = 150
 ANIMATIONSPEED = 0.05
 
 #Tafelsetting
-TAFELSIZE = 2.75
+TAFELSIZE = 3.5
 
 #shootsettings
 SHOOT_COOLDOWN = 15    

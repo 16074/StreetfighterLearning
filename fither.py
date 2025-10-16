@@ -119,7 +119,7 @@ class Button:
 class Vraag:
     def __init__(self, x, y, width, height):
         self.rect = pygame.Rect(x, y, width, height)
-        self.font = pygame.font.Font(None, 36)
+        self.font = pygame.font.Font(None, 20)
         self.small_font = pygame.font.Font(None, 28)
         self.active = False        
         self.user_text = ""        

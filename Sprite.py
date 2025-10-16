@@ -421,7 +421,7 @@ class bullet(pygame.sprite.Sprite):
         self.bulletimage = pygame.transform.rotozoom(self.bulletimage, 0, 1.4)
         self.image = self.bulletimage
         self.rect = self.image.get_rect(center=(x, y))
-        self.speed = 5
+        self.speed = BULLET_SPEED
         self.x_vel = self.speed * math.cos(math.radians(angle))
         self.y_vel = -self.speed * math.sin(math.radians(angle))
 
