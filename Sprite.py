@@ -6,6 +6,12 @@ from settings import *
 import sys
 import subprocess
 
+info = pygame.display.Info()
+screen_width, screen_height = info.current_w, info.current_h
+
+Screen = pygame.display.set_mode((screen_width, screen_height))
+pygame.display.set_caption("WiSp --- Home")
+
 def check_library_installed(libraryname):
     try:
         __import__(libraryname)
@@ -177,9 +183,9 @@ def questiontime():
 
     running = True
     while running:
-        button1 = Button(100, 210, 400, 75, antwoordenlijst[0])
-        button2 = Button(100, 310, 400, 75, antwoordenlijst[1])
-        button3 = Button(100, 410, 400, 75, antwoordenlijst[2])
+        button1 = Button(((screen_width-400)/2), 210, 400, 75, antwoordenlijst[0])
+        button2 = Button(((screen_width-400)/2), 310, 400, 75, antwoordenlijst[1])
+        button3 = Button(((screen_width-400)/2), 410, 400, 75, antwoordenlijst[2])
         button_loop()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -415,7 +421,7 @@ class bullet(pygame.sprite.Sprite):
         self.bulletimage = pygame.transform.rotozoom(self.bulletimage, 0, 1.4)
         self.image = self.bulletimage
         self.rect = self.image.get_rect(center=(x, y))
-        self.speed = 5
+        self.speed = BULLET_SPEED
         self.x_vel = self.speed * math.cos(math.radians(angle))
         self.y_vel = -self.speed * math.sin(math.radians(angle))
 

@@ -39,7 +39,7 @@ button1 = Button(0, 0, 100, 40, "Terug")
 vraag_window = Vraag(300, 150, 400, 250)
 
 #vraagknop
-vraag_knop = Button(500, 0, 120, 40, "Vraag")
+vraag_knop = Button(450, 250, 120, 40, "Vraag")
 
 
 #loop
