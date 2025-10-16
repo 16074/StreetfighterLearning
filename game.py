@@ -1,5 +1,7 @@
 import pygame
 from pygame import mixer
+import json
+import random
 
 pygame.mixer.pre_init(44100, -16, 2, 512)
 mixer.init()
@@ -46,6 +48,27 @@ dead_fx = pygame.mixer.Sound('dood.mp3')
 dead_fx.set_volume(0.5)
 victory_fx = pygame.mixer.Sound('victory.mp3')
 victory_fx.set_volume(0.5)
+
+vraag = []
+antwoordenlijst = []
+goedantwoord = []
+
+#database laden
+with open('data.json', 'r') as file:
+    data = json.load(file)
+
+def load_random_question():
+        vraag_data = random.choice(data["vragen"])
+        vraag_functie = vraag_data["vraag"]
+        vraag.append(vraag_functie)
+
+        goed_antwoord = vraag_data["goed_antwoord"]
+        goedantwoord.append(goed_antwoord)
+        fout_antwoorden = [vraag_data["fout_antwoord1"] or vraag_data["fout_antwoord2"]]
+
+        antwoorden = [goed_antwoord] + fout_antwoorden
+        antwoordenlijst.extend(antwoorden)
+        antwoordenlijst.sort()
 
 #tekst laden
 def draw_text(text, font, text_colour, x, y):
@@ -383,6 +406,10 @@ class Door(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
 
+    def draw_text(goed_antwoord, font, text_colour, x, y):
+        img = font.render(goed_antwoord, True, text_colour)
+        screen.blit(img, (x, y))
+
 class Platform_horizontaal(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
@@ -427,6 +454,10 @@ class Door_fake(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+    
+    def draw_text(fout_antwoorden, font, text_colour, x, y):
+        img = font.render(fout_antwoorden, True, text_colour)
+        screen.blit(img, (x, y))
 
 player = Player(32, 704 - 128)
 
@@ -453,7 +484,7 @@ coin_group.add(high_score_coin)
 
 
 run = True
-while run:
+while run:    
     clock.tick(fps)
     screen.blit(achtergrond_img, (0, 0))
 
@@ -478,7 +509,7 @@ while run:
                 score += 1
                 coin_fx.play()
             draw_text('X' + str(score), font_score, white, tile_size - 10, 10)
-    
+
         blob_group.draw(screen)
         lava_group.draw(screen)
         coin_group.draw(screen)
