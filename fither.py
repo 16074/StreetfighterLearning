@@ -207,3 +207,60 @@ class Vraag:
             self.correct = False
         if not self.active:
             return
+class UitlegVenster:
+    def __init__(self, x, y, width, height):
+        self.rect = pygame.Rect(x, y, width, height)
+        self.font = pygame.font.Font(None, 28)
+        self.small_font = pygame.font.Font(None, 24)
+        self.active = False
+
+        # sluitknop
+        self.sluit_button = pygame.Rect(x + width - 110, y + height - 50, 100, 40)
+
+        # tekstregels
+        self.tekstregels = [
+            "- Uitleg van het spel:",
+            "- Beantwoord vragen over de stelling van Pythagoras.",
+            "- de formule is \(a^{2}+b^{2}=c^{2}\)",
+            "- Een goed antwoord = tegenstander verliest 10 HP.",
+            "- Een fout antwoord = jij verliest 10 HP.",
+            "- Klik op 'Vraag' om een nieuwe vraag te krijgen.",
+            "- Gebruik 'Terug' om naar het hoofdmenu te gaan.",
+            "",
+            "Veel succes, wiskundevechter!"
+        ]
+
+    def draw(self, surface):
+        if not self.active:
+            return
+
+        # achtergrond
+        pygame.draw.rect(surface, (240, 240, 255), self.rect)
+        pygame.draw.rect(surface, (0, 0, 0), self.rect, 3)
+
+        # tekstregels tekenen
+        y_offset = 30
+        for regel in self.tekstregels:
+            text_surface = self.small_font.render(regel, True, (0, 0, 0))
+            surface.blit(text_surface, (self.rect.x + 20, self.rect.y + y_offset))
+            y_offset += 30
+
+        # sluitknop
+        pygame.draw.rect(surface, (200, 100, 100), self.sluit_button)
+        sluit_text = self.small_font.render("Sluiten", True, (255, 255, 255))
+        surface.blit(
+            sluit_text,
+            (
+                self.sluit_button.centerx - sluit_text.get_width() // 2,
+                self.sluit_button.centery - sluit_text.get_height() // 2
+            )
+        )
+
+    def handle_event(self, event):
+        if not self.active:
+            return
+
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if self.sluit_button.collidepoint(event.pos):
+                self.active = False
+

@@ -6,6 +6,7 @@ from fither import Kak
 from fither import Health
 from fither import Button
 from fither import Vraag
+from fither import UitlegVenster
 
 
 pygame.init()
@@ -41,6 +42,12 @@ vraag_window = Vraag(300, 150, 400, 250)
 #vraagknop
 vraag_knop = Button(450, 250, 120, 40, "Vraag")
 
+#lkj
+uitleg_knop = Button(900, 0, 100, 40, "Uitleg")
+
+#uitleg window
+uitleg_window = UitlegVenster(200, 100, 600, 400)
+
 
 #loop
 
@@ -71,6 +78,12 @@ while run:
     #vraag op scherm
     vraag_window.draw(Screen)
 
+    #uitleg knop op scherm
+    uitleg_knop.draw(Screen)
+
+    #uitleg op scherm
+    uitleg_window.draw(Screen)
+
 #event handler
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -80,6 +93,13 @@ while run:
 
     if vraag_knop.is_clicked(event):
         vraag_window.active = True  # opent de vraag
+    vraag_window.handle_event(event)
+    uitleg_window.handle_event(event)
+
+    if uitleg_knop.is_clicked(event):
+        uitleg_window.active = True
+    
+    
 
 # controleer of de knop is aangeklikt
     if button1.is_clicked(event):
@@ -98,13 +118,10 @@ while run:
         vraag_window.correct = None 
         vraag_window = Vraag(300, 150, 400, 250)
         vraag_window.active = False
-            # reset status
+        
 #update display
     pygame.display.update()
 
 #sluiten
 
 pygame.quit()
-    
-
-
