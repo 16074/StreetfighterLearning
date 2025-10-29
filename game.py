@@ -471,10 +471,6 @@ class Vraag:
         antwoordenlijst.extend(antwoorden)
         antwoordenlijst.sort()
 
-    def draw_text(vraag_functie, font, text_colour, x, y):
-        vraag_text = font.render(vraag_functie, True, text_colour)
-        screen.blit(vraag_text, (x + 20, y + 20))
-
 player = Player(32, 704 - 128)
 
 blob_group = pygame.sprite.Group()
