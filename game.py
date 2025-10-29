@@ -57,7 +57,8 @@ goedantwoord = []
 with open('data.json', 'r') as file:
     data = json.load(file)
 
-def load_random_question():
+class Vraag:
+    def load_random_question():
         vraag_data = random.choice(data["vragen"])
         vraag_functie = vraag_data["vraag"]
         vraag.append(vraag_functie)
@@ -69,6 +70,10 @@ def load_random_question():
         antwoorden = [goed_antwoord] + fout_antwoorden
         antwoordenlijst.extend(antwoorden)
         antwoordenlijst.sort()
+
+    def draw_text(vraag_functie, font, text_colour, x, y):
+        vraag_text = font.render(vraag_functie, True, text_colour)
+        screen.blit(vraag_text, (x + 20, y + 20))
 
 #tekst laden
 def draw_text(text, font, text_colour, x, y):
