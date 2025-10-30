@@ -590,6 +590,7 @@ while run:
                 coin_group.add(score_coin)
                 coin_group.add(high_score_coin)
                 world = reset_level(level)
+                vraag_group.empty()
                 game_over = 0
             else:
                 victory_fx.play()
