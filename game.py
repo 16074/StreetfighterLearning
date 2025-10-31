@@ -22,7 +22,7 @@ tile_size = 32
 game_over = 0
 main_menu = True
 level = 1
-max_levels = 5
+max_levels = 15
 score = 0
 
 #kleuren definiëren
@@ -318,7 +318,7 @@ class World():
                 if tile == 3:
                     blob = Enemy(column_count * tile_size, row_count * tile_size)
                     blob_group.add(blob)
-                    if level == 5:
+                    if level == 15:
                         blob = Enemy_boss(column_count * tile_size, row_count * tile_size)
                         blob_group.add(blob)
                 if tile == 4:
@@ -341,7 +341,7 @@ class World():
                     fout = vraag.current_vraag['fout_antwoord1']
                     if teller_fouten > 0:
                         fout = vraag.current_vraag['fout_antwoord2']
-                    door_fake = Door_fake(column_count * tile_size, row_count * tile_size + (tile_size // 2), text=fout)
+                    door_fake = Door_fake(column_count * tile_size, row_count * tile_size - (tile_size // 2), text=fout)
                     door_fake_group.add(door_fake)
                     teller_fouten += 1
                 column_count += 1
@@ -524,7 +524,7 @@ while run:
     clock.tick(fps)
     screen.blit(achtergrond_img, (0, 0))
 
-    if level == 5:
+    if level == 15:
         achtergrond_img = achtergrond_boss_img
 
     if main_menu == True:
@@ -589,8 +589,8 @@ while run:
                 coin_group.empty()
                 coin_group.add(score_coin)
                 coin_group.add(high_score_coin)
-                world = reset_level(level)
                 vraag_group.empty()
+                world = reset_level(level)
                 game_over = 0
             else:
                 victory_fx.play()
