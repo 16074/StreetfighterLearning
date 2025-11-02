@@ -1,0 +1,194 @@
+{
+    "vragen": [
+    {
+        "vraag": "3 x (4 + 5) =", "goed_antwoord": "27", "fout_antwoord1": "35", "fout_antwoord2": "12"},
+    {
+        "vraag": "2 x (7 - 3) =", "goed_antwoord": "8", "fout_antwoord1": "10", "fout_antwoord2": "4"},
+    {
+        "vraag": "5 x (6 + 2) =", "goed_antwoord": "40", "fout_antwoord1": "56", "fout_antwoord2": "13"},
+    {
+        "vraag": "4 x (9 - 5) =", "goed_antwoord": "16", "fout_antwoord1": "36", "fout_antwoord2": "20"},
+    {
+        "vraag": "6 x (3 + 7) =", "goed_antwoord": "60", "fout_antwoord1": "67", "fout_antwoord2": "30"},
+    {
+        "vraag": "(4 + 2) x (3 + 5) =", "goed_antwoord": "48", "fout_antwoord1": "56", "fout_antwoord2": "16"},
+    {
+        "vraag": "(7 - 3) x (2 + 4) =", "goed_antwoord": "24", "fout_antwoord1": "10", "fout_antwoord2": "40"},
+    {
+        "vraag": "(8 + 1) x (5 - 2) =", "goed_antwoord": "27", "fout_antwoord1": "24", "fout_antwoord2": "36"},
+    {
+        "vraag": "(9 - 4) x (3 + 6) =", "goed_antwoord": "45", "fout_antwoord1": "27", "fout_antwoord2": "54"},
+    {
+        "vraag": "(6 + 3) x (7 - 2) =", "goed_antwoord": "45", "fout_antwoord1": "30", "fout_antwoord2": "56"},
+    {
+        "vraag": "7 x (8 - 3) =", "goed_antwoord": "35", "fout_antwoord1": "56", "fout_antwoord2": "45"},
+    {
+        "vraag": "9 x (5 + 4) =", "goed_antwoord": "81", "fout_antwoord1": "59", "fout_antwoord2": "36"},
+    {
+        "vraag": "8 x (6 - 2) =", "goed_antwoord": "32", "fout_antwoord1": "64", "fout_antwoord2": "48"},
+    {
+        "vraag": "3 x (9 + 3) =", "goed_antwoord": "36", "fout_antwoord1": "93", "fout_antwoord2": "12"},
+    {
+        "vraag": "5 x (7 - 1) =", "goed_antwoord": "30", "fout_antwoord1": "35", "fout_antwoord2": "24"},
+    {
+        "vraag": "(5 + 5) x (2 + 3) =", "goed_antwoord": "50", "fout_antwoord1": "25", "fout_antwoord2": "40"},
+    {
+        "vraag": "(6 - 2) x (4 + 5) =", "goed_antwoord": "36", "fout_antwoord1": "18", "fout_antwoord2": "45"},
+    {
+        "vraag": "(9 + 1) x (8 - 6) =", "goed_antwoord": "20", "fout_antwoord1": "16", "fout_antwoord2": "10"},
+    {
+        "vraag": "(3 + 7) x (9 - 2) =", "goed_antwoord": "70", "fout_antwoord1": "45", "fout_antwoord2": "63"},
+    {
+        "vraag": "(4 + 4) x (6 + 2) =", "goed_antwoord": "64", "fout_antwoord1": "48", "fout_antwoord2": "56"},
+    {
+        "vraag": "2 x (8 + 6) =", "goed_antwoord": "28", "fout_antwoord1": "16", "fout_antwoord2": "14"},
+    {
+        "vraag": "4 x (7 - 2) =", "goed_antwoord": "20", "fout_antwoord1": "28", "fout_antwoord2": "24"},
+    {
+        "vraag": "6 x (5 + 3) =", "goed_antwoord": "48", "fout_antwoord1": "30", "fout_antwoord2": "18"},
+    {
+        "vraag": "9 x (4 - 1) =", "goed_antwoord": "27", "fout_antwoord1": "36", "fout_antwoord2": "45"},
+    {
+        "vraag": "8 x (2 + 7) =", "goed_antwoord": "72", "fout_antwoord1": "27", "fout_antwoord2": "18"},
+    {
+        "vraag": "(2 + 3) x (4 + 6) =", "goed_antwoord": "50", "fout_antwoord1": "46", "fout_antwoord2": "25"},
+    {
+        "vraag": "(9 - 5) x (7 + 2) =", "goed_antwoord": "36", "fout_antwoord1": "27", "fout_antwoord2": "45"},
+    {
+        "vraag": "(8 + 2) x (3 + 3) =", "goed_antwoord": "60", "fout_antwoord1": "36", "fout_antwoord2": "50"},
+    {
+        "vraag": "(7 - 2) x (5 - 1) =", "goed_antwoord": "20", "fout_antwoord1": "25", "fout_antwoord2": "30"},
+    {
+        "vraag": "(6 + 1) x (9 - 4) =", "goed_antwoord": "35", "fout_antwoord1": "30", "fout_antwoord2": "45"},
+    {
+        "vraag": "5 x (4 + 8) =", "goed_antwoord": "60", "fout_antwoord1": "52", "fout_antwoord2": "20"},
+    {
+        "vraag": "7 x (6 - 2) =", "goed_antwoord": "28", "fout_antwoord1": "42", "fout_antwoord2": "35"},
+    {
+        "vraag": "9 x (3 + 5) =", "goed_antwoord": "72", "fout_antwoord1": "45", "fout_antwoord2": "14"},
+    {
+        "vraag": "2 x (9 - 3) =", "goed_antwoord": "12", "fout_antwoord1": "18", "fout_antwoord2": "9"},
+    {
+        "vraag": "4 x (2 + 9) =", "goed_antwoord": "44", "fout_antwoord1": "29", "fout_antwoord2": "22"},
+    {
+        "vraag": "(3 + 5) x (7 - 3) =", "goed_antwoord": "32", "fout_antwoord1": "24", "fout_antwoord2": "40"},
+    {
+        "vraag": "(9 - 2) x (4 + 3) =", "goed_antwoord": "49", "fout_antwoord1": "63", "fout_antwoord2": "28"},
+    {
+        "vraag": "(8 + 1) x (5 + 4) =", "goed_antwoord": "81", "fout_antwoord1": "45", "fout_antwoord2": "72"},
+    {
+        "vraag": "(7 - 4) x (8 - 3) =", "goed_antwoord": "15", "fout_antwoord1": "20", "fout_antwoord2": "12"},
+    {
+        "vraag": "(6 + 2) x (9 - 1) =", "goed_antwoord": "64", "fout_antwoord1": "72", "fout_antwoord2": "48"},
+    {
+        "vraag": "3 x (8 + 5) =", "goed_antwoord": "39", "fout_antwoord1": "24", "fout_antwoord2": "26"},
+    {
+        "vraag": "5 x (9 - 4) =", "goed_antwoord": "25", "fout_antwoord1": "45", "fout_antwoord2": "20"},
+    {
+        "vraag": "7 x (3 + 2) =", "goed_antwoord": "35", "fout_antwoord1": "23", "fout_antwoord2": "14"},
+    {
+        "vraag": "9 x (6 - 3) =", "goed_antwoord": "27", "fout_antwoord1": "54", "fout_antwoord2": "18"},
+    {
+        "vraag": "8 x (4 + 7) =", "goed_antwoord": "88", "fout_antwoord1": "84", "fout_antwoord2": "32"},
+    {
+        "vraag": "(5 + 2) x (6 + 3) =", "goed_antwoord": "63", "fout_antwoord1": "45", "fout_antwoord2": "72"},
+    {
+        "vraag": "(9 - 4) x (5 + 2) =", "goed_antwoord": "35", "fout_antwoord1": "63", "fout_antwoord2": "49"},
+    {
+        "vraag": "(8 + 1) x (4 - 2) =", "goed_antwoord": "18", "fout_antwoord1": "16", "fout_antwoord2": "20"},
+    {
+        "vraag": "(7 - 3) x (6 + 5) =", "goed_antwoord": "44", "fout_antwoord1": "22", "fout_antwoord2": "55"},
+    {
+        "vraag": "(6 + 4) x (8 - 5) =", "goed_antwoord": "30", "fout_antwoord1": "40", "fout_antwoord2": "20"},
+    {
+        "vraag": "2 x (4 + 3) =", "goed_antwoord": "14", "fout_antwoord1": "10", "fout_antwoord2": "8"},
+    {
+        "vraag": "3 x (9 - 2) =", "goed_antwoord": "21", "fout_antwoord1": "27", "fout_antwoord2": "30"},
+    {
+        "vraag": "4 x (5 + 6) =", "goed_antwoord": "44", "fout_antwoord1": "20", "fout_antwoord2": "24"},
+    {
+        "vraag": "6 x (8 - 5) =", "goed_antwoord": "18", "fout_antwoord1": "48", "fout_antwoord2": "30"},
+    {
+        "vraag": "9 x (7 + 1) =", "goed_antwoord": "72", "fout_antwoord1": "81", "fout_antwoord2": "63"},
+    {
+        "vraag": "(2 + 2) x (8 - 3) =", "goed_antwoord": "20", "fout_antwoord1": "25", "fout_antwoord2": "10"},
+    {
+        "vraag": "(4 - 1) x (9 + 2) =", "goed_antwoord": "33", "fout_antwoord1": "22", "fout_antwoord2": "44"},
+    {
+        "vraag": "(6 + 3) x (5 - 1) =", "goed_antwoord": "36", "fout_antwoord1": "45", "fout_antwoord2": "32"},
+    {
+        "vraag": "(8 - 5) x (7 + 3) =", "goed_antwoord": "30", "fout_antwoord1": "50", "fout_antwoord2": "40"},
+    {
+        "vraag": "(9 + 1) x (4 + 2) =", "goed_antwoord": "60", "fout_antwoord1": "42", "fout_antwoord2": "54"},
+    {
+        "vraag": "7 x (4 + 4) =", "goed_antwoord": "56", "fout_antwoord1": "48", "fout_antwoord2": "32"},
+    {
+        "vraag": "8 x (9 - 6) =", "goed_antwoord": "24", "fout_antwoord1": "48", "fout_antwoord2": "18"},
+    {
+        "vraag": "5 x (3 + 7) =", "goed_antwoord": "50", "fout_antwoord1": "35", "fout_antwoord2": "25"},
+    {
+        "vraag": "6 x (9 - 2) =", "goed_antwoord": "42", "fout_antwoord1": "54", "fout_antwoord2": "63"},
+    {
+        "vraag": "9 x (8 + 1) =", "goed_antwoord": "81", "fout_antwoord1": "72", "fout_antwoord2": "63"},
+    {
+        "vraag": "(3 + 4) x (9 - 5) =", "goed_antwoord": "28", "fout_antwoord1": "36", "fout_antwoord2": "20"},
+    {
+        "vraag": "(5 - 2) x (8 + 3) =", "goed_antwoord": "33", "fout_antwoord1": "55", "fout_antwoord2": "22"},
+    {
+        "vraag": "(7 + 1) x (6 - 3) =", "goed_antwoord": "24", "fout_antwoord1": "27", "fout_antwoord2": "21"},
+    {
+        "vraag": "(9 - 6) x (4 + 2) =", "goed_antwoord": "18", "fout_antwoord1": "24", "fout_antwoord2": "12"},
+    {
+        "vraag": "(8 + 2) x (7 - 4) =", "goed_antwoord": "30", "fout_antwoord1": "24", "fout_antwoord2": "36"},
+    {
+        "vraag": "3 x (6 + 2) =", "goed_antwoord": "24", "fout_antwoord1": "18", "fout_antwoord2": "20"},
+    {
+        "vraag": "4 x (9 - 6) =", "goed_antwoord": "12", "fout_antwoord1": "36", "fout_antwoord2": "24"},
+    {
+        "vraag": "5 x (8 + 3) =", "goed_antwoord": "55", "fout_antwoord1": "40", "fout_antwoord2": "30"},
+    {
+        "vraag": "7 x (9 - 5) =", "goed_antwoord": "28", "fout_antwoord1": "63", "fout_antwoord2": "35"},
+    {
+        "vraag": "8 x (7 + 2) =", "goed_antwoord": "72", "fout_antwoord1": "56", "fout_antwoord2": "81"},
+    {
+        "vraag": "(4 + 1) x (8 + 2) =", "goed_antwoord": "50", "fout_antwoord1": "45", "fout_antwoord2": "40"},
+    {
+        "vraag": "(6 - 3) x (9 + 1) =", "goed_antwoord": "30", "fout_antwoord1": "60", "fout_antwoord2": "40"},
+    {
+        "vraag": "(8 + 2) x (4 - 1) =", "goed_antwoord": "30", "fout_antwoord1": "24", "fout_antwoord2": "36"},
+    {
+        "vraag": "(9 - 7) x (6 + 5) =", "goed_antwoord": "22", "fout_antwoord1": "12", "fout_antwoord2": "11"},
+    {
+        "vraag": "(5 + 4) x (7 - 2) =", "goed_antwoord": "45", "fout_antwoord1": "63", "fout_antwoord2": "35"},
+    {
+        "vraag": "2 x (9 + 4) =", "goed_antwoord": "26", "fout_antwoord1": "18", "fout_antwoord2": "24"},
+    {
+        "vraag": "3 x (8 - 3) =", "goed_antwoord": "15", "fout_antwoord1": "24", "fout_antwoord2": "18"},
+    {
+        "vraag": "6 x (7 + 5) =", "goed_antwoord": "72", "fout_antwoord1": "65", "fout_antwoord2": "36"},
+    {
+        "vraag": "9 x (2 + 3) =", "goed_antwoord": "45", "fout_antwoord1": "23", "fout_antwoord2": "54"},
+    {
+        "vraag": "7 x (5 - 2) =", "goed_antwoord": "21", "fout_antwoord1": "35", "fout_antwoord2": "14"},
+    {
+        "vraag": "(3 + 2) x (6 + 4) =", "goed_antwoord": "50", "fout_antwoord1": "60", "fout_antwoord2": "40"},
+    {
+        "vraag": "(9 - 5) x (8 - 3) =", "goed_antwoord": "20", "fout_antwoord1": "40", "fout_antwoord2": "25"},
+    {
+        "vraag": "(7 + 2) x (5 + 1) =", "goed_antwoord": "54", "fout_antwoord1": "63", "fout_antwoord2": "45"},
+    {
+        "vraag": "(8 - 3) x (9 - 4) =", "goed_antwoord": "25", "fout_antwoord1": "35", "fout_antwoord2": "45"},
+    {
+        "vraag": "(6 + 3) x (7 + 2) =", "goed_antwoord": "81", "fout_antwoord1": "72", "fout_antwoord2": "63"},
+    {
+        "vraag": "4 x (5 + 2) =", "goed_antwoord": "28", "fout_antwoord1": "35", "fout_antwoord2": "21"},
+    {
+        "vraag": "5 x (8 - 5) =", "goed_antwoord": "15", "fout_antwoord1": "30", "fout_antwoord2": "20"},
+    {
+        "vraag": "7 x (9 + 3) =", "goed_antwoord": "84", "fout_antwoord1": "63", "fout_antwoord2": "96"},
+    {
+        "vraag": "9 x (4 - 2) =", "goed_antwoord": "18", "fout_antwoord1": "36", "fout_antwoord2": "12"},
+    {
+        "vraag": "8 x (3 + 6) =", "goed_antwoord": "72", "fout_antwoord1": "54", "fout_antwoord2": "27"}
+]
+}
