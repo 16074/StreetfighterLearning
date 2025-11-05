@@ -32,7 +32,7 @@ jobs:
             --add-data="NKPGAME:NKPGAME" \
             --add-data="achtergrond_boss.png:." \
             --add-data="achtergrond_p.png:." \
-            --add-data="bg-music.mp3:." \
+            --add-data="bg_music.mp3:." \
             --add-data="blob.png:." \
             --add-data="blob_boss.png:." \
             --add-data="coin.mp3:." \
