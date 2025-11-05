@@ -8,7 +8,6 @@ def start_game():
     import math
     import sys
     import subprocess
-    import main
 
     import pygame
     info = pygame.display.Info()
@@ -709,7 +708,7 @@ def start_game():
         produc_bar.draw(page)
         button4.draw(page)
         if button4.is_clicked(event):
-            main.start_programma()
+            return "home"
         pygame.display.update()
         clock.tick(FPS)
     pygame.mixer.music.fadeout(500)

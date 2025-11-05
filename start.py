@@ -118,9 +118,7 @@ def start_game():
         
         
         if button1.is_clicked(event):
-            pygame.quit() 
-            os.system("python main.py")
-            sys.exit()
+            return "home"
 
         if vraag_window.correct is not None and damage_timer is None:
             damage_timer = pygame.time.get_ticks()

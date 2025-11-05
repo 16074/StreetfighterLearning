@@ -68,7 +68,7 @@ def start_programma():
     # Maak knoppen één keer aan
     button1 = Button(((screen_width-400)/2), 210, 400, 75, "Streetfighter - Pythagoras")
     button2 = Button(((screen_width-400)/2), 310, 400, 75, "Sollies klaslokaal - Machtrekenen")
-    button3 = Button(((screen_width-400)/2), 410, 400, 75, "Platformer - SosCasToa")
+    button3 = Button(((screen_width-400)/2), 410, 400, 75, "Platformer - Rekenregels")
 
     current_screen = "home"
 
@@ -104,12 +104,21 @@ def start_programma():
 
         elif current_screen == "game1":
             start.start_game()
+            actie = start.start_game()  # Sprite.start_game() moet iets teruggeven
+            if actie == "home":
+                current_screen = "home"
 
         elif current_screen == "game2":
             Sprite.start_game()
+            actie = Sprite.start_game()  # Sprite.start_game() moet iets teruggeven
+            if actie == "home":
+                current_screen = "home"
 
         elif current_screen == "game3":
             game.start_game()
+            actie = game.start_game()  # Sprite.start_game() moet iets teruggeven
+            if actie == "home":
+                current_screen = "home"
 
         else:
             # Simpel wit scherm als placeholder voor spel
@@ -122,4 +131,6 @@ def start_programma():
 
     # Einde van programma
     pygame.quit()
-start_programma()
+
+if __name__ == "__main__":
+    start_programma()
