@@ -20,64 +20,65 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install pygame pyinstaller
+          
       - name: Build EXE
         run: |
-          pyinstaller --onefile \
-          --add-data=afbeeldingen:afbeeldingen \
-          --add-data=Geluid:Geluid \
-          --add-data="EVil Wizard 2:EVil Wizard 2" \
-          --add-data=NKPextra:NKPextra \
-          --add-data=NKPGAME:NKPGAME \
-          --add-data=achtergrond_boss.png:. \
-          --add-data=achtergrond_p.png:. \
-          --add-data=bg-music.mp3:. \
-          --add-data=blob.png:. \
-          --add-data=blob_boss.png:. \
-          --add-data=coin.mp3:. \
-          --add-data=coin.png:. \
-          --add-data=data.json:. \
-          --add-data=dood.mp3:. \
-          --add-data=dood.png:. \
-          --add-data=door.png:. \
-          --add-data=fither.py:. \
-          --add-data=game.py:. \
-          --add-data=gebruiker.py:. \
-          --add-data=gras.png:. \
-          --add-data=grond.png:. \
-          --add-data=haakjes.json:. \
-          --add-data=highscore.txt:. \
-          --add-data=jump.mp3:. \
-          --add-data=lava.png:. \
-          --add-data=level1.txt:. \
-          --add-data=level2.txt:. \
-          --add-data=level3.txt:. \
-          --add-data=level4.txt:. \
-          --add-data=level5.txt:. \
-          --add-data=level6.txt:. \
-          --add-data=level7.txt:. \
-          --add-data=level8.txt:. \
-          --add-data=level9.txt:. \
-          --add-data=level10.txt:. \
-          --add-data=level11.txt:. \
-          --add-data=level12.txt:. \
-          --add-data=level13.txt:. \
-          --add-data=level14.txt:. \
-          --add-data=level15.txt:. \
-          --add-data=main.py:. \
-          --add-data=meisje1.png:. \
-          --add-data=meisje2.png:. \
-          --add-data=meisje3.png:. \
-          --add-data=meisje4.png:. \
-          --add-data=play.png:. \
-          --add-data=restart.png:. \
-          --add-data=settings.py:. \
-          --add-data=Sprite.py:. \
-          --add-data=start.py:. \
-          --add-data=stop.png:. \
-          --add-data=victory.mp3:. \
-          --add-data=vraag.png:. \
-          --add-data=Vragen.py:. \
-          main.py
+          pyinstaller --onefile ^
+            --add-data "afbeeldingen;afbeeldingen" ^
+            --add-data "Geluid;Geluid" ^
+            --add-data "EVil Wizard 2;EVil Wizard 2" ^
+            --add-data "NKPextra;NKPextra" ^
+            --add-data "NKPGAME;NKPGAME" ^
+            --add-data "achtergrond_boss.png;." ^
+            --add-data "achtergrond_p.png;." ^
+            --add-data "bg-music.mp3;." ^
+            --add-data "blob.png;." ^
+            --add-data "blob_boss.png;." ^
+            --add-data "coin.mp3;." ^
+            --add-data "coin.png;." ^
+            --add-data "data.json;." ^
+            --add-data "dood.mp3;." ^
+            --add-data "dood.png;." ^
+            --add-data "door.png;." ^
+            --add-data "fither.py;." ^
+            --add-data "game.py;." ^
+            --add-data "gebruiker.py;." ^
+            --add-data "gras.png;." ^
+            --add-data "grond.png;." ^
+            --add-data "haakjes.json;." ^
+            --add-data "highscore.txt;." ^
+            --add-data "jump.mp3;." ^
+            --add-data "lava.png;." ^
+            --add-data "level1.txt;." ^
+            --add-data "level2.txt;." ^
+            --add-data "level3.txt;." ^
+            --add-data "level4.txt;." ^
+            --add-data "level5.txt;." ^
+            --add-data "level6.txt;." ^
+            --add-data "level7.txt;." ^
+            --add-data "level8.txt;." ^
+            --add-data "level9.txt;." ^
+            --add-data "level10.txt;." ^
+            --add-data "level11.txt;." ^
+            --add-data "level12.txt;." ^
+            --add-data "level13.txt;." ^
+            --add-data "level14.txt;." ^
+            --add-data "level15.txt;." ^
+            --add-data "meisje1.png;." ^
+            --add-data "meisje2.png;." ^
+            --add-data "meisje3.png;." ^
+            --add-data "meisje4.png;." ^
+            --add-data "play.png;." ^
+            --add-data "restart.png;." ^
+            --add-data "settings.py;." ^
+            --add-data "Sprite.py;." ^
+            --add-data "start.py;." ^
+            --add-data "stop.png;." ^
+            --add-data "victory.mp3;." ^
+            --add-data "vraag.png;." ^
+            --add-data "Vragen.py;." ^
+            main.py
+
 
 
       - name: Upload built EXE
