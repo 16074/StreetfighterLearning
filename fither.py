@@ -257,18 +257,18 @@ class UitlegVenster:
 
         # tekstregels
         self.tekstregels = [
-            "- Uitleg van het spel:",
-            "- Beantwoord vragen over de stelling van Pythagoras.",
-            "- de formule is \(a^{2}+b^{2}=c^{2}\)",
-            " - bijvoorbeeld: 3^2 (3=A) + 4^2 (4=B) = 9 + 16  = 25 (?=C)",
-            " - 5^2 = 25, dus 5 = C ",
-            " - Gebruik een rekenmachine (indien nodig)",
-            "- Een goed antwoord = tegenstander verliest 10 HP.",
-            "- Een fout antwoord = jij verliest 10 HP.",
-            "- Klik op 'Vraag' om een nieuwe vraag te krijgen.",
-            "- Gebruik 'Terug' om naar het hoofdmenu te gaan.",
-            "",
-            "Veel succes, wiskundevechter!"
+        "- Uitleg van het spel:",
+        "- Beantwoord vragen over de stelling van Pythagoras.",
+        "- De formule is a² + b² = c²",
+        "- Bijvoorbeeld: 3² (a=3) + 4² (b=4) = 9 + 16 = 25 (?=c)",
+        "- 5² = 25, dus c = 5",
+        "- Gebruik een rekenmachine (indien nodig).",
+        "- Een goed antwoord = tegenstander verliest 10 HP.",
+        "- Een fout antwoord = jij verliest 10 HP.",
+        "- Klik op 'Vraag' om een nieuwe vraag te krijgen.",
+        "- Gebruik 'Terug' om naar het hoofdmenu te gaan.",
+        "",
+        "Veel succes, wiskundevechter!"
         ]
 
     def draw(self, surface):
