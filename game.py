@@ -22,7 +22,7 @@ tile_size = 32
 game_over = 0
 main_menu = True
 level = 1
-max_levels = 5
+max_levels = 15
 score = 0
 
 #kleuren definiëren
@@ -54,21 +54,8 @@ antwoordenlijst = []
 goedantwoord = []
 
 #database laden
-with open('data.json', 'r') as file:
-    data = json.load(file)
-
-def load_random_question():
-        vraag_data = random.choice(data["vragen"])
-        vraag_functie = vraag_data["vraag"]
-        vraag.append(vraag_functie)
-
-        goed_antwoord = vraag_data["goed_antwoord"]
-        goedantwoord.append(goed_antwoord)
-        fout_antwoorden = [vraag_data["fout_antwoord1"] or vraag_data["fout_antwoord2"]]
-
-        antwoorden = [goed_antwoord] + fout_antwoorden
-        antwoordenlijst.extend(antwoorden)
-        antwoordenlijst.sort()
+with open('haakjes.json', 'r') as file:
+    data_vraag = json.load(file)
 
 #tekst laden
 def draw_text(text, font, text_colour, x, y):
@@ -297,6 +284,20 @@ class World():
         self.tile_list = []
 
         row_count = 0
+        
+        x = -1
+        y = -1
+
+        for row in data:
+            if 10 in row:
+                x = row.index(10)
+                y = data.index(row)
+        
+        vraag = Vraag(x * tile_size, y * tile_size, random.choice(data_vraag['vragen']))
+        vraag_group.add(vraag)
+        teller_fouten = 0
+
+
         for row in data:
             column_count = 0
             for tile in row:
@@ -317,14 +318,15 @@ class World():
                 if tile == 3:
                     blob = Enemy(column_count * tile_size, row_count * tile_size)
                     blob_group.add(blob)
-                    if level == 5:
+                    if level == 15:
                         blob = Enemy_boss(column_count * tile_size, row_count * tile_size)
                         blob_group.add(blob)
                 if tile == 4:
                     lava = Lava(column_count * tile_size, row_count * tile_size + (tile_size // 2))
                     lava_group.add(lava)
-                if tile == 5:
-                    door = Door(column_count * tile_size, row_count * tile_size - (tile_size // 2))
+                if tile == 5:  # echte deur → goed antwoord
+                    goed = vraag.current_vraag["goed_antwoord"]
+                    door = Door(column_count * tile_size, row_count * tile_size - (tile_size // 2), text=goed)
                     door_group.add(door)
                 if tile == 6:
                     coin = Coin(column_count * tile_size + (tile_size // 2), row_count * tile_size + (tile_size // 2))
@@ -335,11 +337,16 @@ class World():
                 if tile == 8:
                     platform_verticaal = Platform_verticaal(column_count * tile_size, row_count * tile_size)
                     platform_verticaal_group.add(platform_verticaal)
-                if tile == 9:
-                    door_fake = Door_fake(column_count * tile_size, row_count * tile_size + (tile_size // 2))
+                if tile == 9:  # nepdeur → fout antwoord
+                    fout = vraag.current_vraag['fout_antwoord1']
+                    if teller_fouten > 0:
+                        fout = vraag.current_vraag['fout_antwoord2']
+                    door_fake = Door_fake(column_count * tile_size, row_count * tile_size - (tile_size // 2), text=fout)
                     door_fake_group.add(door_fake)
+                    teller_fouten += 1
                 column_count += 1
             row_count += 1
+            
     def draw(self):
         for tile in self.tile_list:
             screen.blit(tile[0], tile[1])
@@ -398,17 +405,18 @@ class Coin(pygame.sprite.Sprite):
         self.rect.center = (x, y)
 
 class Door(pygame.sprite.Sprite):
-    def __init__(self, x, y):
+    def __init__(self, x, y, text=""):
         pygame.sprite.Sprite.__init__(self)
         door_img = pygame.image.load("door.png")
         self.image = pygame.transform.scale(door_img, (tile_size, int(tile_size * 1.5)))
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+        self.text = text
 
-    def draw_text(goed_antwoord, font, text_colour, x, y):
-        img = font.render(goed_antwoord, True, text_colour)
-        screen.blit(img, (x, y))
+    def draw_text(self):
+        if self.text:
+            draw_text(self.text, font_score, white, self.rect.x + 5, self.rect.y - 10)
 
 class Platform_horizontaal(pygame.sprite.Sprite):
     def __init__(self, x, y):
@@ -447,17 +455,45 @@ class Platform_verticaal(pygame.sprite.Sprite):
             self.move_counter *= -1
 
 class Door_fake(pygame.sprite.Sprite):
-    def __init__(self, x, y):
+    def __init__(self, x, y, text=""):
         pygame.sprite.Sprite.__init__(self)
         door_fake_img = pygame.image.load("door.png")
         self.image = pygame.transform.scale(door_fake_img, (tile_size, int(tile_size * 1.5)))
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
-    
-    def draw_text(fout_antwoorden, font, text_colour, x, y):
-        img = font.render(fout_antwoorden, True, text_colour)
-        screen.blit(img, (x, y))
+        self.text = text
+
+    def draw_text(self):
+        if self.text:
+            draw_text(self.text, font_score, white, self.rect.x + 5, self.rect.y - 10)
+
+class Vraag(pygame.sprite.Sprite):
+    def __init__(self, x, y, vraag):
+        super().__init__()
+        vraag_img = pygame.image.load("vraag.png")
+        self.image = pygame.transform.scale(vraag_img, (tile_size, tile_size))
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+        self.active = False  # om bij te houden of de speler dichtbij is
+        self.current_vraag = vraag
+
+    def update(self, player_rect):
+        # Controleer botsing met speler
+        if self.rect.colliderect(player_rect):
+            if not self.active:
+                self.active = True
+        else:
+            self.active = False
+
+    def draw_question(self):
+        if self.active and self.current_vraag:
+            # Teken een zwarte rechthoek als achtergrond
+            pygame.draw.rect(screen, (0, 0, 0), (150, 50, 600, 100))
+            pygame.draw.rect(screen, (255, 255, 255), (150, 50, 600, 100), 3)
+            # Teken de vraagtekst
+            draw_text(self.current_vraag["vraag"], font, white, 180, 90)
 
 player = Player(32, 704 - 128)
 
@@ -468,6 +504,7 @@ door_group = pygame.sprite.Group()
 platform_horizontaal_group = pygame.sprite.Group()
 platform_verticaal_group = pygame.sprite.Group()
 door_fake_group = pygame.sprite.Group()
+vraag_group = pygame.sprite.Group()
 
 world = World(laad_levels(level))
 
@@ -482,13 +519,12 @@ coin_group.add(score_coin)
 high_score_coin = Coin((tile_size * 28), (tile_size //2))
 coin_group.add(high_score_coin)
 
-
 run = True
 while run:    
     clock.tick(fps)
     screen.blit(achtergrond_img, (0, 0))
 
-    if level == 5:
+    if level == 15:
         achtergrond_img = achtergrond_boss_img
 
     if main_menu == True:
@@ -498,6 +534,11 @@ while run:
             run = False
     else:
         world.draw()
+
+        # Update en teken vraagtekens
+        for vraag in vraag_group:
+            vraag.update(player.rect)
+            vraag.draw_question()
 
         if game_over == 0:
             blob_group.update()
@@ -517,6 +558,14 @@ while run:
         platform_horizontaal_group.draw(screen)
         platform_verticaal_group.draw(screen)
         door_fake_group.draw(screen)
+        vraag_group.draw(screen)
+
+        for door in door_group:
+            door.draw_text()
+
+        for door_fake in door_fake_group:
+            door_fake.draw_text()
+
 
         game_over = player.update(game_over)
 
@@ -540,6 +589,7 @@ while run:
                 coin_group.empty()
                 coin_group.add(score_coin)
                 coin_group.add(high_score_coin)
+                vraag_group.empty()
                 world = reset_level(level)
                 game_over = 0
             else:

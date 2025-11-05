@@ -11,76 +11,113 @@ BLACK = (0, 0, 0)
 
 class Fighter():
     def __init__(self, x, y):
-        # Frames van je GIF (png's)
-        self.frames = []
-        self.load_images("afbeeldingen/idle")  # map met png frames
+        self.animations = {
+            "idle": self.load_images("afbeeldingen/idle"),
+            "attack": self.load_images("afbeeldingen/attack"),
+            "hurt": self.load_images("afbeeldingen/hurt"),
+        }
+        
+        self.action = "idle"
         self.frame_index = 0
-        self.image = self.frames[self.frame_index]
+        self.image = self.animations[self.action][self.frame_index]
         self.rect = self.image.get_rect(topleft=(x, y))
-        self.animation_speed = 0.3  # hoe snel frames wisselen
+        self.animation_speed = 0.25  # hoe snel frames wisselen
+        
         self.max_health = 100
         self.health = self.max_health
 
+        self.playing_animation = False
+    
+    def load_images(self, folder):
+        frames = []
+        if not os.path.exists(folder):
+            print(f"⚠️ Map ontbreekt: {folder}")
+            return frames
+        for file in sorted(os.listdir(folder)):
+            if file.endswith(".png"):
+                path = os.path.join(folder, file)
+                img = pygame.image.load(path).convert_alpha()
+                frames.append(img)
+        print(f"{len(frames)} frames geladen uit {folder}")  # debug
+        return frames
+    
+
         #frames tonen
+    def play (self,action):
+        if action in self.animations:
+            self.action = action
+            self.frame_index = 0
+            self.playing_animation = True
+    
+    def update(self):
+        frames = self.animations[self.action]
+        if not frames:
+            return
+        self.frame_index += self.animation_speed
+        if self.frame_index >= len(frames):
+            self.frame_index = 0
+            if self.action != "idle":
+                self.action = "idle"
+        self.image = frames[int(self.frame_index)]
+        
     
     def draw(self, surface):
         image = pygame.transform.rotozoom(self.image.convert_alpha(), 1, 2.3) 
         # schaal bijvoorbeeld 2x groter 
-        surface.blit(image, self.rect)
-
         scaled_image = pygame.transform.scale(self.image, (150, 150))
-
-    def load_images(self, folder_path):
-        for filename in sorted(os.listdir(folder_path)):
-            if filename.endswith(".png"):
-                img = pygame.image.load(os.path.join(folder_path, filename)).convert_alpha()
-                self.frames.append(img)
-
-    def update(self):
-        # animatie updaten
-        self.frame_index += self.animation_speed
-        if self.frame_index >= len(self.frames):
-            self.frame_index = 0
-        self.image = self.frames[int(self.frame_index)]
-
-    #def draw(self, surface):
-        #surface.blit(self.image, self.rect)
+        surface.blit(image, self.rect)
+        scaled_image = pygame.transform.scale(self.image, (150, 150))
         
 
-class Kak():
+class Kak:
     def __init__(self, x, y):
-        # Frames van je GIF (png's)
-        self.frames = []
-        self.load_images("afbeeldingen/idle")  # map met png frames
+        self.animations = {
+            "idle": self.load_images("afbeeldingen/idle"),
+            "attack": self.load_images("afbeeldingen/attack"),
+            "hurt": self.load_images("afbeeldingen/hurt"),
+        }
+        self.action = "idle"
         self.frame_index = 0
-        self.image = self.frames[self.frame_index]
+        self.image = self.animations[self.action][self.frame_index]
         self.rect = self.image.get_rect(topleft=(x, y))
-        self.animation_speed = 0.3  # hoe snel frames wisselen
+        self.animation_speed = 0.25
         self.max_health = 100
         self.health = self.max_health
+        self.playing_animation = False
 
-        #frames tonen
-    
-    def draw(self, surface):
-        image = pygame.transform.rotozoom(self.image.convert_alpha(), 180, 2.3) 
-        image= pygame.transform.flip(image,flip_x= False, flip_y=True)
-        # schaal bijvoorbeeld 2x groter 
-        surface.blit(image, self.rect)
+    def load_images(self, folder):
+        frames = []
+        if not os.path.exists(folder):
+            print(f"⚠️ Map ontbreekt: {folder}")
+            return frames
+        for file in sorted(os.listdir(folder)):
+            if file.endswith(".png"):
+                img = pygame.image.load(os.path.join(folder, file)).convert_alpha()
+                frames.append(img)
+        return frames
 
-        scaled_image = pygame.transform.scale(self.image, (150, 150))
-
-    def load_images(self, folder_path):
-        for filename in sorted(os.listdir(folder_path)):
-            if filename.endswith(".png"):
-                img = pygame.image.load(os.path.join(folder_path, filename)).convert_alpha()
-                self.frames.append(img)
+    def play(self, action):
+        if action in self.animations:
+            self.action = action
+            self.frame_index = 0
+            self.playing_animation = True
 
     def update(self):
-        # animatie updaten
+        frames = self.animations[self.action]
+        if not frames:
+            return
         self.frame_index += self.animation_speed
-        if self.frame_index >= len(self.frames):
+        if self.frame_index >= len(frames):
+            if self.action != "idle":
+                self.action = "idle"
             self.frame_index = 0
-        self.image = self.frames[int(self.frame_index)]
+            self.playing_animation = False
+        self.image = frames[int(self.frame_index)]
+
+    def draw(self, surface):
+        flipped = pygame.transform.flip(self.image, True, False)
+        scaled = pygame.transform.rotozoom(flipped, 0, 2.3)
+        surface.blit(scaled, self.rect)
 
 class Health:
     def __init__(self, x, y):
@@ -205,6 +242,7 @@ class Vraag:
                 self.correct = False
         except ValueError:
             self.correct = False
+        self.active= False
         if not self.active:
             return
 class UitlegVenster:
