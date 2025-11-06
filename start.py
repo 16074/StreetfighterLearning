@@ -16,6 +16,12 @@ pygame.init()
 #pygame.mixer.music.set_volume(0.5)  # volume tussen 0.0 en 1.0
 #pygame.mixer.music.play(-1)  # -1 = blijft herhalen
 
+def resource_path(relative_path):
+    """Geeft het juiste pad naar resources, ook na bundeling met PyInstaller."""
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
+
 #tijd
 damage_timer = None
 Damage_result = None
@@ -27,7 +33,7 @@ Screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Level 1 --- Streetfighter/Pythagoras")
 
 #inladen achtergrond
-bg_image = pygame.image.load("Achtergrond.jpg").convert_alpha()
+bg_image = pygame.image.load(resource_path("Achtergrond.jpg")).convert_alpha()
 bg_image = pygame.transform.scale(bg_image,(1000 , 600))
 
 #achtergrond afspelen
