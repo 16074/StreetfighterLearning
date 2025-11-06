@@ -14,46 +14,46 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'  # wijzig indien nodig
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install pygame pyinstaller
 
       - name: Build EXE
-        shell: bash
+        shell: cmd
         run: |
-          pyinstaller --onefile \
-            --add-data="afbeeldingen:afbeeldingen" \
-            --add-data="Geluid:Geluid" \
-            --add-data="EVil Wizard 2:EVil Wizard 2" \
-            --add-data="NKPextra:NKPextra" \
-            --add-data="NKPGAME:NKPGAME" \
-            --add-data="achtergrond_boss.png:." \
-            --add-data="achtergrond_p.png:." \
-            --add-data="bg_music.mp3:." \
-            --add-data="blob.png:." \
-            --add-data="blob_boss.png:." \
-            --add-data="coin.mp3:." \
-            --add-data="coin.png:." \
-            --add-data="data.json:." \
-            --add-data="dood.mp3:." \
-            --add-data="dood.png:." \
-            --add-data="door.png:." \
-            --add-data="gras.png:." \
-            --add-data="grond.png:." \
-            --add-data="haakjes.json:." \
-            --add-data="highscore.txt:." \
-            --add-data="jump.mp3:." \
-            --add-data="lava.png:." \
-            --add-data="play.png:." \
-            --add-data="restart.png:." \
-            --add-data="settings.py:." \
-            --add-data="start.py:." \
-            --add-data="stop.png:." \
-            --add-data="victory.mp3:." \
-            --add-data="vraag.png:." \
+          pyinstaller --onefile ^
+            --add-data "afbeeldingen;afbeeldingen" ^
+            --add-data "Geluid;Geluid" ^
+            --add-data "EVil Wizard 2;EVil Wizard 2" ^
+            --add-data "NKPextra;NKPextra" ^
+            --add-data "NKPGAME;NKPGAME" ^
+            --add-data "achtergrond_boss.png;." ^
+            --add-data "achtergrond_p.png;." ^
+            --add-data "bg_music.mp3;." ^
+            --add-data "blob.png;." ^
+            --add-data "blob_boss.png;." ^
+            --add-data "coin.mp3;." ^
+            --add-data "coin.png;." ^
+            --add-data "data.json;." ^
+            --add-data "dood.mp3;." ^
+            --add-data "dood.png;." ^
+            --add-data "door.png;." ^
+            --add-data "gras.png;." ^
+            --add-data "grond.png;." ^
+            --add-data "haakjes.json;." ^
+            --add-data "highscore.txt;." ^
+            --add-data "jump.mp3;." ^
+            --add-data "lava.png;." ^
+            --add-data "play.png;." ^
+            --add-data "restart.png;." ^
+            --add-data "settings.py;." ^
+            --add-data "start.py;." ^
+            --add-data "stop.png;." ^
+            --add-data "victory.mp3;." ^
+            --add-data "vraag.png;." ^
             Sprite.py
 
       - name: Upload built EXE
