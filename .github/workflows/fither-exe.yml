@@ -26,10 +26,11 @@ jobs:
         run: |
           pyinstaller --onefile ^
             --add-data "afbeeldingen;afbeeldingen" ^
-            --add-data "afbeeldingen;achtergrond;afbeeldingen" ^
-            --add-data "afbeeldingen;attack;afbeeldingen" ^
-            --add-data "afbeeldingen;hurt;afbeeldingen" ^
-            --add-data "afbeeldingen;idle;Ken" ^
+            --add-data "afbeeldingen;achtergrond" ^
+            --add-data "afbeeldingen;attack" ^
+            --add-data "afbeeldingen;hurt" ^
+            --add-data "afbeeldingen;idle" ^
+            --add-data "afbeeldingen;Ken" ^
             --add-data "EVil Wizard 2;EVil Wizard 2" ^
             --add-data "achtergrond_boss.png;." ^
             --add-data "achtergrond_p.png;." ^
