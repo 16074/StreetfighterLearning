@@ -3,6 +3,15 @@ import os
 import random
 from Vragen import PYTHAGORAS_VRAGEN  
 
+import os, sys
+
+def resource_path(relative_path):
+    """Geeft het juiste pad naar resources, ook na bundeling met PyInstaller."""
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
+
+
 # Kleuren en fonts
 BUTTON_COLOR = (128, 0, 128)
 BUTTON_HOVER_COLOR = (108, 70, 117)
@@ -12,9 +21,9 @@ BLACK = (0, 0, 0)
 class Fighter():
     def __init__(self, x, y):
         self.animations = {
-            "idle": self.load_images("afbeeldingen/idle"),
-            "attack": self.load_images("afbeeldingen/attack"),
-            "hurt": self.load_images("afbeeldingen/hurt"),
+            "idle": self.load_images(resource_path("afbeeldingen/idle")),
+            "attack": self.load_images(resource_path("afbeeldingen/attack")),
+            "hurt": self.load_images(resource_path("afbeeldingen/hurt")),
         }
         
         self.action = "idle"
