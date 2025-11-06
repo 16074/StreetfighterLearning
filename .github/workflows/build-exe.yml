@@ -24,7 +24,7 @@ jobs:
       - name: Build EXE
         shell: cmd
         run: |
-          pyinstaller --onefile ^
+          pyinstaller --onefile --noconsole^
             --add-data "afbeeldingen;afbeeldingen" ^
             --add-data "Geluid;Geluid" ^
             --add-data "EVil Wizard 2;EVil Wizard 2" ^
