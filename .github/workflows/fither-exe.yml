@@ -1,4 +1,4 @@
-name: Build Windows EXE Sollie
+name: Build Windows EXE Fighter
 
 on:
   workflow_dispatch:
