@@ -28,8 +28,6 @@ jobs:
             --add-data "afbeeldingen;afbeeldingen" ^
             --add-data "Geluid;Geluid" ^
             --add-data "EVil Wizard 2;EVil Wizard 2" ^
-            --add-data "NKPextra;NKPextra" ^
-            --add-data "NKPGAME;NKPGAME" ^
             --add-data "achtergrond_boss.png;." ^
             --add-data "achtergrond_p.png;." ^
             --add-data "bg_music.mp3;." ^
@@ -41,6 +39,7 @@ jobs:
             --add-data "dood.mp3;." ^
             --add-data "dood.png;." ^
             --add-data "door.png;." ^
+            --add-data "Gebruiker.py;." ^
             --add-data "gras.png;." ^
             --add-data "grond.png;." ^
             --add-data "haakjes.json;." ^
@@ -53,6 +52,7 @@ jobs:
             --add-data "stop.png;." ^
             --add-data "victory.mp3;." ^
             --add-data "vraag.png;." ^
+            --add-data "Vragen.py;." ^
             start.py
 
       - name: Upload built EXE
