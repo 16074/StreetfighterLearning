@@ -10,10 +10,10 @@ import subprocess
 
 import pygame
 info = pygame.display.Info()
-#screen_width, screen_height = 1000, 600
+screen_width, screen_height = 1000, 600
 
-Screen = pygame.display.set_mode((1000, 600))
-pygame.display.set_caption("WiSp --- Home")
+#Screen = pygame.display.set_mode((1000, 600))
+#pygame.display.set_caption("WiSp --- Home")
 
 def check_library_installed(libraryname):
     try:
