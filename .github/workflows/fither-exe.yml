@@ -1,4 +1,4 @@
-name: Build Windows EXE Sollie
+name: Build Windows EXE Fighter
 
 on:
   workflow_dispatch:
@@ -53,10 +53,10 @@ jobs:
             --add-data "stop.png;." ^
             --add-data "victory.mp3;." ^
             --add-data "vraag.png;." ^
-            Sprite.py
+            start.py
 
       - name: Upload built EXE
         uses: actions/upload-artifact@v4
         with:
           name: my-exe
-          path: dist/Sprite.exe
+          path: dist/start.exe
