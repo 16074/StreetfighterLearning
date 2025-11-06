@@ -3,7 +3,9 @@ import pygame
 pygame.init()
 
 info = pygame.display.Info()
-WIDTH, HEIGHT = info.current_w, info.current_h
+WIDTH = 1000
+HEIGHT = 600
+#WIDTH, HEIGHT = info.current_w, info.current_h
 
 Screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
