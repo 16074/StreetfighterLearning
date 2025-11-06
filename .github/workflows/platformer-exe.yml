@@ -1,0 +1,81 @@
+name: Build Windows EXE Platformer
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pygame pyinstaller
+
+      - name: Build EXE
+        shell: cmd
+        run: |
+          pyinstaller --onefile ^
+            --add-data "afbeeldingen;afbeeldingen" ^
+            --add-data "Geluid;Geluid" ^
+            --add-data "EVil Wizard 2;EVil Wizard 2" ^
+            --add-data "achtergrond_boss.png;." ^
+            --add-data "achtergrond_p.png;." ^
+            --add-data "bg_music.mp3;." ^
+            --add-data "blob.png;." ^
+            --add-data "blob_boss.png;." ^
+            --add-data "coin.mp3;." ^
+            --add-data "coin.png;." ^
+            --add-data "data.json;." ^
+            --add-data "dood.mp3;." ^
+            --add-data "dood.png;." ^
+            --add-data "door.png;." ^
+            --add-data "Gebruiker.py;." ^
+            --add-data "gras.png;." ^
+            --add-data "grond.png;." ^
+            --add-data "haakjes.json;." ^
+            --add-data "highscore.txt;." ^
+            --add-data "jump.mp3;." ^
+            --add-data "lava.png;." ^
+            --add-data "level1;." ^
+            --add-data "level2;." ^
+            --add-data "level3;." ^
+            --add-data "level4;." ^
+            --add-data "level5;." ^
+            --add-data "level6;." ^
+            --add-data "level7;." ^
+            --add-data "level8;." ^
+            --add-data "level9;." ^
+            --add-data "level10;." ^
+            --add-data "level11;." ^
+            --add-data "level12;." ^
+            --add-data "level13;." ^
+            --add-data "level14;." ^
+            --add-data "level15;." ^
+            --add-data "meisje1;." ^
+            --add-data "meisje2;." ^
+            --add-data "meisje3;." ^
+            --add-data "meisje4;." ^
+            --add-data "play.png;." ^
+            --add-data "restart.png;." ^
+            --add-data "settings.py;." ^
+            --add-data "stop.png;." ^
+            --add-data "victory.mp3;." ^
+            --add-data "vraag.png;." ^
+            --add-data "Vragen.py;." ^
+            game.py
+
+      - name: Upload built EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-exe
+          path: dist/game.exe
