@@ -50,7 +50,6 @@ jobs:
             --add-data "play.png;." ^
             --add-data "restart.png;." ^
             --add-data "settings.py;." ^
-            --add-data "start.py;." ^
             --add-data "stop.png;." ^
             --add-data "victory.mp3;." ^
             --add-data "vraag.png;." ^
