@@ -12,7 +12,7 @@ pygame.init()
 
 #muziek
 pygame.mixer.init()
-pygame.mixer.music.load("geluid/Into-Battle.mp3")  # pad naar jouw muziekje
+pygame.mixer.music.load("Geluid/Into-Battle.mp3")  # pad naar jouw muziekje
 pygame.mixer.music.set_volume(0.5)  # volume tussen 0.0 en 1.0
 pygame.mixer.music.play(-1)  # -1 = blijft herhalen
 
