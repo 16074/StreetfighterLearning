@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pygame pyinstaller
+          pip install pygame pyinstaller opencv-python
 
       - name: Build EXE
         shell: pwsh
@@ -54,7 +54,6 @@ jobs:
             --add-data "victory.mp3;." `
             --add-data "vraag.png;." `
             Sprite.py
-
 
       - name: Upload built EXE
         uses: actions/upload-artifact@v4
