@@ -12,8 +12,8 @@ import pygame
 info = pygame.display.Info()
 screen_width, screen_height = 1000, 600
 
-#Screen = pygame.display.set_mode((1000, 600))
-#pygame.display.set_caption("WiSp --- Home")
+Screen = pygame.display.set_mode((1000, 600))
+pygame.display.set_caption("WiSp --- Home")
 
 def check_library_installed(libraryname):
     try:
@@ -25,7 +25,6 @@ def check_library_installed(libraryname):
 libraries = ["pygame", "pygame-ce", "opencv-python"]
 for i in libraries:
     check_library_installed(i)
-import pygame
 import cv2
 pygame.init()
 playerscore = 0
