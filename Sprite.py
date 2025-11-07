@@ -49,7 +49,7 @@ pygame.mixer.music.play(loops=-1, start=0, fade_ms=1000)
 pygame.mixer.music.set_volume(0.45)
 score_font = pygame.font.Font('freesansbold.ttf', 16)
 GROOT_font = pygame.font.Font('freesansbold.ttf', 32)
-GROOOOT_font = pygame.font.Font(resource_path('NKPGAME/bloody.TTF', 90))
+GROOOOT_font = pygame.font.Font(resource_path('NKPGAME/bloody.TTF'))
 blbl = score_font.render("B", False, (0,0,0)) # initialiseer om te kijken hoe groot het lettertype op scherm is
 score_height = blbl.get_height()
 SCREENHEIGHT = score_height + HEIGHT
@@ -81,15 +81,15 @@ for i in range(math.floor(HEIGHT / HEIGHT_tafel) - 1):
     objects.append((tafel_rechts, rect))
 
 #score inladen
-a = open(resource_path("highscore.txt", "r"))
-x = a.read()
-a.close()
-if x == "":
-    x = 0
-highscore = int(x)
+#a = open(resource_path("highscore.txt", "r"))
+#x = a.read()
+#a.close()
+#if x == "":
+#    x = 0
+#highscore = int(x)
 
 def display_score(score_font):
-    box_text =  score_font.render(f"Aantal vragen: {str(len(vraagbox_lijst))}   score: {str(playerscore)}  highscore: {str(highscore)}", True, (0,0,0))
+    box_text =  score_font.render(f"Aantal vragen: {str(len(vraagbox_lijst))}   score: {str(playerscore)}", True, (0,0,0))
     text_surface = pygame.Surface((WIDTH, box_text.get_height() + 30))
     text_surface.fill((180, 210, 186))
     text_surface.blit(box_text, ((WIDTH - box_text.get_width())/2, 0))
@@ -136,7 +136,7 @@ def questiontime():
                 return False
     
     #ophalen quizvragen uit json file
-    with open(resource_path('data.json', 'r')) as file:
+    with open(resource_path('data.json'), 'r') as file:
         data = json.load(file)
 
     def load_random_question():
@@ -674,13 +674,13 @@ while NOTGAMEOVER:
         questionoo = player.update()
         bullet_group.update()  # Update alle kogels
         bullet_group.draw(screen)  # Teken alle kogels
-        if highscore <= playerscore:
-            a = open(resource_path("highscore.txt", "w"))
-            a.write(str(playerscore))
-            a.close()
-            highscore = playerscore
-        if highscore >= 2000:
-            secret_unlocked = True
+#        if highscore <= playerscore:
+#            a = open(resource_path("highscore.txt", "w"))
+#            a.write(str(playerscore))
+#            a.close()
+#            highscore = playerscore
+#        if highscore >= 2000:
+#            secret_unlocked = True
         display_score(score_font)
         spawn_vuur_tijdelijk()
         counter2 += 1
