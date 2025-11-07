@@ -7,7 +7,7 @@ import random
 import math
 import sys
 import os
-
+import numpy as np
 import pygame
 info = pygame.display.Info()
 screen_width, screen_height = 1000, 600
@@ -25,6 +25,11 @@ screen_width, screen_height = 1000, 600
 import cv2
 pygame.init()
 playerscore = 0
+
+def gaussian_blur_surface(surface, radius):
+    array = pygame.surfarray.array3d(surface)
+    array = cv2.GaussianBlur(array, (radius, radius), 0)
+    return pygame.surfarray.make_surface(array)
 
 def resource_path(relative_path):
     """Geeft het juiste pad naar resources, ook na bundeling met PyInstaller."""
@@ -464,7 +469,8 @@ for k in range(i_y):
 for i, j in objects:
     background_surf.blit(i, j)
     upper_surface.blit(i,j)
-BLURBACK = pygame.transform.gaussian_blur(upper_surface, 15)
+BLURBACK = gaussian_blur_surface(upper_surface, 15)
+
 #Scoredeel einde
 
 class producbar():
