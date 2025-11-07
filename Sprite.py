@@ -6,7 +6,7 @@ from tkinter import messagebox
 import random
 import math
 import sys
-import subprocess
+import os
 
 import pygame
 info = pygame.display.Info()
@@ -49,7 +49,7 @@ pygame.mixer.music.play(loops=-1, start=0, fade_ms=1000)
 pygame.mixer.music.set_volume(0.45)
 score_font = pygame.font.Font('freesansbold.ttf', 16)
 GROOT_font = pygame.font.Font('freesansbold.ttf', 32)
-GROOOOT_font = pygame.font.Font('NKPGAME/bloody.TTF', 90)
+GROOOOT_font = pygame.font.Font(resource_path('NKPGAME/bloody.TTF', 90))
 blbl = score_font.render("B", False, (0,0,0)) # initialiseer om te kijken hoe groot het lettertype op scherm is
 score_height = blbl.get_height()
 SCREENHEIGHT = score_height + HEIGHT
