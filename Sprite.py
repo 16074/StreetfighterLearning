@@ -26,6 +26,12 @@ import cv2
 pygame.init()
 playerscore = 0
 
+def resource_path(relative_path):
+    """Geeft het juiste pad naar resources, ook na bundeling met PyInstaller."""
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
+
 #vragenmodus staat aan of uit
 questionoo = False
 
@@ -38,7 +44,7 @@ video = cv2.VideoCapture(video_path)
 video2 = cv2.VideoCapture(video_path2)
 videofps = video.get((cv2.CAP_PROP_FPS))/3
 pygame.mixer.init()
-pygame.mixer.music.load("NKPGAME/NKPGAMESOUND.mp3")
+pygame.mixer.music.load(resource_path("NKPGAME/NKPGAMESOUND.mp3"))
 pygame.mixer.music.play(loops=-1, start=0, fade_ms=1000)
 pygame.mixer.music.set_volume(0.45)
 score_font = pygame.font.Font('freesansbold.ttf', 16)
