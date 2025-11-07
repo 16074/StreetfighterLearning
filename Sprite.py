@@ -12,16 +12,16 @@ import pygame
 info = pygame.display.Info()
 screen_width, screen_height = 1000, 600
 
-def check_library_installed(libraryname):
-    try:
-        __import__(libraryname)
-    except ImportError:
-        print(f"Installing necessary packages {str(libraryname)}")
-        subprocess.check_call([sys.executable, "-m", "pip", "install", libraryname])
+# def check_library_installed(libraryname):
+#     try:
+#         __import__(libraryname)
+#     except ImportError:
+#         print(f"Installing necessary packages {str(libraryname)}")
+#         subprocess.check_call([sys.executable, "-m", "pip", "install", libraryname])
 
-libraries = ["pygame", "pygame-ce", "opencv-python"]
-for i in libraries:
-    check_library_installed(i)
+# libraries = ["pygame", "pygame-ce", "opencv-python"]
+# for i in libraries:
+#     check_library_installed(i)
 import cv2
 pygame.init()
 playerscore = 0
