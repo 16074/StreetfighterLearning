@@ -59,7 +59,7 @@ pygame.display.set_caption("Level 2 --- Sollies klaslokaal / Machtrekenen")
 clock = pygame.time.Clock()
 objects = []
 objects_rect = []
-tafel_links = pygame.transform.rotozoom(pygame.image.load("NKPGAME/Tafelart.png"), 270, TAFELSIZE)
+tafel_links = pygame.transform.rotozoom(pygame.image.load(resource_path("NKPGAME/Tafelart.png")), 270, TAFELSIZE)
 HEIGHT_tafel = tafel_links.get_height()
 WIDTH_tafel = tafel_links.get_width()
 for i in range(math.floor(HEIGHT / HEIGHT_tafel)):
@@ -70,7 +70,7 @@ for i in range(math.floor(HEIGHT / HEIGHT_tafel) - 1):
     Y = i * HEIGHT_tafel
     rect = pygame.Rect((WIDTH / 2) - 20, Y, WIDTH_tafel, HEIGHT_tafel)
     objects.append((tafel_links, rect))
-tafel_rechts = pygame.transform.rotozoom(pygame.image.load("NKPGAME/Tafelart.png"), 90, TAFELSIZE)
+tafel_rechts = pygame.transform.rotozoom(pygame.image.load(resource_path("NKPGAME/Tafelart.png")), 90, TAFELSIZE)
 for i in range(math.floor(HEIGHT / HEIGHT_tafel)):
     Y = i * HEIGHT_tafel
     rect = pygame.Rect(WIDTH - WIDTH_tafel + 20, Y, WIDTH_tafel, HEIGHT_tafel)
@@ -81,7 +81,7 @@ for i in range(math.floor(HEIGHT / HEIGHT_tafel) - 1):
     objects.append((tafel_rechts, rect))
 
 #score inladen
-a = open("highscore.txt", "r")
+a = open(resource_path("highscore.txt", "r"))
 x = a.read()
 a.close()
 if x == "":
@@ -96,7 +96,7 @@ def display_score(score_font):
     page.blit(text_surface, (0, 0))
 
 #sprites inladen
-background = pygame.image.load("NKPGAME/BACKGROUNDTILE.png")
+background = pygame.image.load(resource_path("NKPGAME/BACKGROUNDTILE.png"))
 y_background = background.get_height()
 x_background = background.get_width()
 
@@ -136,7 +136,7 @@ def questiontime():
                 return False
     
     #ophalen quizvragen uit json file
-    with open('data.json', 'r') as file:
+    with open(resource_path('data.json', 'r')) as file:
         data = json.load(file)
 
     def load_random_question():
@@ -211,7 +211,7 @@ def questiontime():
         pygame.display.flip()
 
 #begin subsectie vraagtekens
-vraagbox_img = pygame.transform.rotozoom(pygame.image.load("NKPGAME/QUESTION.png"), 0, QUESTIONSIZE)
+vraagbox_img = pygame.transform.rotozoom(pygame.image.load(resource_path("NKPGAME/QUESTION.png")), 0, QUESTIONSIZE)
 vraagbox_hoogte = vraagbox_img.get_height()
 vraagbox_breedte = vraagbox_img.get_width()
 vraagbox_lijst = []
@@ -243,20 +243,20 @@ def add_questionbox():
 #einde subsectie + vragendeel
 
 #player info en animatie
-image = pygame.transform.rotozoom(pygame.image.load("NKPGAME/NKPstanding1.0.png").convert_alpha(), 0, PLAYER_SIZE)
-frame2 = pygame.transform.rotozoom(pygame.image.load("NKPGAME/frame2.png").convert_alpha(), 0, PLAYER_SIZE)
-frame3 = pygame.transform.rotozoom(pygame.image.load("NKPGAME/frame3.png").convert_alpha(), 0, PLAYER_SIZE)
-frame4 = pygame.transform.rotozoom(pygame.image.load("NKPGAME/frame4.png").convert_alpha(), 0, PLAYER_SIZE)
-frame5 = pygame.transform.rotozoom(pygame.image.load("NKPGAME/frame5.png").convert_alpha(), 0, PLAYER_SIZE)
-frame6 = pygame.transform.rotozoom(pygame.image.load("NKPGAME/frame6.png").convert_alpha(), 0, PLAYER_SIZE)
-frame7 = pygame.transform.rotozoom(pygame.image.load("NKPGAME/frame7.png").convert_alpha(), 0, PLAYER_SIZE)
-kimage = pygame.transform.rotozoom(pygame.image.load("NKPGAME/KASTELEINstanding1.0.png").convert_alpha(), 0, PLAYER_SIZE/2)
-KASframe2 = pygame.transform.rotozoom(pygame.image.load("NKPGAME/KASframe2.png").convert_alpha(), 0, PLAYER_SIZE/1.5)
-KASframe3 = pygame.transform.rotozoom(pygame.image.load("NKPGAME/KASframe3.png").convert_alpha(), 0, PLAYER_SIZE/1.5)
-KASframe4 = pygame.transform.rotozoom(pygame.image.load("NKPGAME/KASframe4.png").convert_alpha(), 0, PLAYER_SIZE/1.5)
-KASframe5 = pygame.transform.rotozoom(pygame.image.load("NKPGAME/KASframe5.png").convert_alpha(), 0, PLAYER_SIZE/1.5)
-KASframe6 = pygame.transform.rotozoom(pygame.image.load("NKPGAME/KASframe6.png").convert_alpha(), 0, PLAYER_SIZE/1.5)
-KASframe7 = pygame.transform.rotozoom(pygame.image.load("NKPGAME/KASframe7.png").convert_alpha(), 0, PLAYER_SIZE/1.5)
+image = pygame.transform.rotozoom(pygame.image.load(resource_path("NKPGAME/NKPstanding1.0.png")).convert_alpha(), 0, PLAYER_SIZE)
+frame2 = pygame.transform.rotozoom(pygame.image.load(resource_path("NKPGAME/frame2.png")).convert_alpha(), 0, PLAYER_SIZE)
+frame3 = pygame.transform.rotozoom(pygame.image.load(resource_path("NKPGAME/frame3.png")).convert_alpha(), 0, PLAYER_SIZE)
+frame4 = pygame.transform.rotozoom(pygame.image.load(resource_path("NKPGAME/frame4.png")).convert_alpha(), 0, PLAYER_SIZE)
+frame5 = pygame.transform.rotozoom(pygame.image.load(resource_path("NKPGAME/frame5.png")).convert_alpha(), 0, PLAYER_SIZE)
+frame6 = pygame.transform.rotozoom(pygame.image.load(resource_path("NKPGAME/frame6.png")).convert_alpha(), 0, PLAYER_SIZE)
+frame7 = pygame.transform.rotozoom(pygame.image.load(resource_path("NKPGAME/frame7.png")).convert_alpha(), 0, PLAYER_SIZE)
+kimage = pygame.transform.rotozoom(pygame.image.load(resource_path("NKPGAME/KASTELEINstanding1.0.png")).convert_alpha(), 0, PLAYER_SIZE/2)
+KASframe2 = pygame.transform.rotozoom(pygame.image.load(resource_path("NKPGAME/KASframe2.png")).convert_alpha(), 0, PLAYER_SIZE/1.5)
+KASframe3 = pygame.transform.rotozoom(pygame.image.load(resource_path("NKPGAME/KASframe3.png")).convert_alpha(), 0, PLAYER_SIZE/1.5)
+KASframe4 = pygame.transform.rotozoom(pygame.image.load(resource_path("NKPGAME/KASframe4.png")).convert_alpha(), 0, PLAYER_SIZE/1.5)
+KASframe5 = pygame.transform.rotozoom(pygame.image.load(resource_path("NKPGAME/KASframe5.png")).convert_alpha(), 0, PLAYER_SIZE/1.5)
+KASframe6 = pygame.transform.rotozoom(pygame.image.load(resource_path("NKPGAME/KASframe6.png")).convert_alpha(), 0, PLAYER_SIZE/1.5)
+KASframe7 = pygame.transform.rotozoom(pygame.image.load(resource_path("NKPGAME/KASframe7.png")).convert_alpha(), 0, PLAYER_SIZE/1.5)
 frame = 0
 framelijst = [image, frame2, frame3, frame4, frame5, frame6, frame7]
 kframelijst = [kimage, KASframe2, KASframe3, KASframe4, KASframe5, KASframe6, KASframe7]
@@ -422,7 +422,7 @@ class Player(pygame.sprite.Sprite):
 class bullet(pygame.sprite.Sprite):
     def __init__(self, x, y, angle):
         super().__init__()
-        self.bulletimage = pygame.image.load("NKPextra/schuim.png").convert_alpha()
+        self.bulletimage = pygame.image.load(resource_path("NKPextra/schuim.png")).convert_alpha()
         self.bulletimage = pygame.transform.rotozoom(self.bulletimage, 0, 1.4)
         self.image = self.bulletimage
         self.rect = self.image.get_rect(center=(x, y))
@@ -518,7 +518,7 @@ produc_bar = producbar((WIDTH - PRODUCBARBREEDTE)/2 , 20, PRODUCBARBREEDTE, PROD
 vuur_breedte = 55
 vuur_hoogte = 55
 vuur_lijst = []
-vuur_afbeelding = pygame.image.load("NKPGAME/Vlam.png")
+vuur_afbeelding = pygame.image.load(resource_path("NKPGAME/Vlam.png"))
 vuur_afbeelding = pygame.transform.scale(vuur_afbeelding, (vuur_breedte, vuur_hoogte))
 laatste_vuur_spawn = 0
 counter1 = 0
@@ -608,7 +608,7 @@ def draw_settings_content():
 #        HEIGHT_determine += 20
 #        screen.blit(secret_locked_text, ((WIDTH - secret_locked_text.get_width())/2, HEIGHT_determine))
 
-settings_img = pygame.transform.rotozoom(pygame.image.load("NKPGAME/SHIFT-Photoroom.png"), 0, SETTINGGROOTE)
+settings_img = pygame.transform.rotozoom(pygame.image.load(resource_path("NKPGAME/SHIFT-Photoroom.png")), 0, SETTINGGROOTE)
 settingsoo = False 
 counter2 = 0
 counter1 = 0
@@ -675,7 +675,7 @@ while NOTGAMEOVER:
         bullet_group.update()  # Update alle kogels
         bullet_group.draw(screen)  # Teken alle kogels
         if highscore <= playerscore:
-            a = open("highscore.txt", "w")
+            a = open(resource_path("highscore.txt", "w"))
             a.write(str(playerscore))
             a.close()
             highscore = playerscore
@@ -714,7 +714,7 @@ while NOTGAMEOVER:
     pygame.display.update()
     clock.tick(FPS)
 pygame.mixer.music.fadeout(500)
-pygame.mixer.music.load("NKPGAME/DIESOUND.mp3")
+pygame.mixer.music.load(resource_path("NKPGAME/DIESOUND.mp3"))
 pygame.mixer.music.play(loops=-1, start=0, fade_ms=1000)
 pygame.mixer.music.set_volume(1)
 videochoice = random.randint(1,2)
