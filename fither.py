@@ -81,9 +81,9 @@ class Fighter():
 class Kak:
     def __init__(self, x, y):
         self.animations = {
-            "idle": self.load_images("afbeeldingen/idle"),
-            "attack": self.load_images("afbeeldingen/attack"),
-            "hurt": self.load_images("afbeeldingen/hurt"),
+            "idle": self.load_images(resource_path("afbeeldingen/idle")),
+            "attack": self.load_images(resource_path("afbeeldingen/attack")),
+            "hurt": self.load_images(resource_path("afbeeldingen/hurt"))
         }
         self.action = "idle"
         self.frame_index = 0
@@ -313,4 +313,3 @@ class UitlegVenster:
         if event.type == pygame.MOUSEBUTTONDOWN:
             if self.sluit_button.collidepoint(event.pos):
                 self.active = False
-
